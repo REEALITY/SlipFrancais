@@ -182,7 +182,9 @@
       loadingHtml: ''
     });
     document.querySelector('a-assets').addEventListener('loaded', function () {
-      window.loading_screen.finish();
+      setTimeout(function() {
+        window.loading_screen.finish();
+      }, 1500);
     });
   </script>
 </body>
