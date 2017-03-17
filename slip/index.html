@@ -49,6 +49,8 @@
 <a-asset-item id="table-obj" src="models/table/DiningTable01.obj"></a-asset-item> 
 <a-asset-item id="homme-obj" src="models/mannequin/mannequin.obj"></a-asset-item> 
 <a-asset-item id="why-male-models" src="models/man/man.dae"></a-asset-item>
+<a-asset-item id="beta" src="models/man/Beta.dae"></a-asset-item>
+<a-asset-item id="standard" src="models/man/standard-male-figure.dae"></a-asset-item>
 
 </a-assets>
 
@@ -125,6 +127,25 @@
                          src="#why-male-models"></a-collada-model>
         <a-image src="#shadow1" rotation="-90 0 0" scale="3 3 3" opacity=".4"></a-image>
       </a-entity>
+
+<a-entity id="model2" position="-0.35 0.02 1.1">
+        <a-animation attribute="rotation" from="0 -30 0" to="0 330 0" dur="15000"
+                     easing="linear" repeat="indefinite"></a-animation>
+        <a-collada-model position="0 0 0" rotation="0 -20 0" scale="2.2 2.2 2.2"
+                         src="#beta"></a-collada-model>
+        <a-image src="#shadow1" rotation="-90 0 0" scale="3 3 3" opacity=".4"></a-image>
+		
+      </a-entity>
+	  
+	  <a-entity id="model3" position="-5.29 1.68 -11.1">
+        <a-animation attribute="rotation" from="0 -30 0" to="0 330 0" dur="15000"
+                     easing="linear" repeat="indefinite"></a-animation>
+        <a-collada-model position="0 0.0 .0" rotation="0 -20 0" scale=".22 .22 .22"
+                         src="#standard"></a-collada-model>
+        <a-image src="#shadow1" rotation="-90 0 0" scale="3 3 3" opacity=".4"></a-image>
+		
+      </a-entity>
+	  
 
 	<!-- déco mur gauche -->
 	
