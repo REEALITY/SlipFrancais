@@ -1,0 +1,14 @@
+{
+    "name": "slipfrancais",
+    "preferGlobal": true,
+    "version": "0.0.1",
+    "author": "Reeality",
+    "description": "Experience VR pour la boutique le slip francais",
+    "license": "MIT",
+    "scripts": {
+        "start": "node ./app.js"
+    },
+    "dependencies": {
+        "express": "^4.15.2"
+    }
+}
