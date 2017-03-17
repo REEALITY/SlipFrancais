@@ -10,7 +10,8 @@
 	
 	
 <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
-<script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.3.0/dist/aframe-extras.min.js"></script>
+<script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.3.0/dist/aframe-extras.min.js"></script>
+<script src="https://unpkg.com/aframe-template-component@^3.1.1/dist/aframe-template-component.min.js"></script>
 
 <script src="components/index.js"></script>   
 <script src="components/a-obj-models.js"></script> 
@@ -49,8 +50,23 @@
 <a-asset-item id="table-obj" src="models/table/DiningTable01.obj"></a-asset-item> 
 <a-asset-item id="homme-obj" src="models/mannequin/mannequin.obj"></a-asset-item> 
 <a-asset-item id="why-male-models" src="models/man/man.dae"></a-asset-item>
-<a-asset-item id="beta" src="models/man/Beta.dae"></a-asset-item>
-<a-asset-item id="standard" src="models/man/standard-male-figure.dae"></a-asset-item>
+<script id="plane" type="text/html">
+  <a-entity id="links" layout="layout: line; margin: 1.5" position="-7 5.64 2" rotation="0 -90 -0">
+    <a-entity class="link"
+      geometry="primitive: plane; height: 2; width: 2"
+      material="shader: flat; src: images/dark_wood.jpg"
+      sound="on: click; src: #click-sound"></a-entity>
+    <a-entity class="link"
+      geometry="primitive: plane; height: 2; width: 2"
+      material="shader: flat; src: images/dark_wood.jpg"
+      sound="on: click; src: #click-sound"></a-entity>
+    <a-entity class="link"
+      geometry="primitive: plane; height: 2; width: 2"
+      material="shader: flat; src: images/dark_wood.jpg"
+      sound="on: click; src: #click-sound"></a-entity>
+  </a-entity>
+  </script>
+</a-asset-item>
 
 </a-assets>
 
@@ -66,7 +82,7 @@
 
 	<!-- Ground -->
  
-<a-entity static-body geometry="primitive: plane; height: 40; width: 20"
+ <a-entity static-body geometry="primitive: plane; height: 40; width: 20"
           position="0 0 0"
           rotation="-90 0 0"
           material="shader: flat; src: url(images/parquet.jpg); repeat:6 12"></a-entity>	  
@@ -146,7 +162,6 @@
 		
       </a-entity>
 	  
-
 	<!-- déco mur gauche -->
 	
 <a-obj-model src="#box-obj" mtl="#box-mtl" scale="0.09 0.02 0.05" position="-8.82 5.64 2" rotation="270 0 270" visible="true" ></a-obj-model>
@@ -168,6 +183,7 @@
 
 
 
+<a-entity template="src: #plane" data-thumb="#dark_wood"></a-entity>
   </a-scene>
   
   
