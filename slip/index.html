@@ -12,7 +12,7 @@
 <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.3.0/dist/aframe-extras.min.js"></script>
 <script src="https://unpkg.com/aframe-template-component@^3.1.1/dist/aframe-template-component.min.js"></script>
-
+<script src="https://unpkg.com/aframe-layout-component@4.0.1/dist/aframe-layout-component.min.js"></script> 
 <script src="components/index.js"></script>   
 <script src="components/a-obj-models.js"></script> 
 
@@ -47,24 +47,17 @@
 <img src="images/plafond.jpg" id="plafond"></img>
 <img src="images/Sky_1.jpg" id="sky"></img>
 <img src="images/ombre radial 256px.png" id="shadow1"></img>
+<img src="images/slip-homme-bleu-foudroyant.jpg" id="slip-bleu"></img>
+<img src="images/slip-homme-gris-conquerant.jpg" id="slip-blanc"></img>
+<img src="images/slip-homme-rouge-fougeux.jpg" id="slip-rouge"></img>
 <a-asset-item id="table-obj" src="models/table/DiningTable01.obj"></a-asset-item> 
 <a-asset-item id="homme-obj" src="models/mannequin/mannequin.obj"></a-asset-item> 
 <a-asset-item id="why-male-models" src="models/man/man.dae"></a-asset-item>
 <script id="plane" type="text/html">
-  <a-entity id="links" layout="layout: line; margin: 1.5" position="-7 5.64 2" rotation="0 -90 -0">
     <a-entity class="link"
       geometry="primitive: plane; height: 2; width: 2"
-      material="shader: flat; src: images/dark_wood.jpg"
+      material="shader: flat; src: ${thumb}"
       sound="on: click; src: #click-sound"></a-entity>
-    <a-entity class="link"
-      geometry="primitive: plane; height: 2; width: 2"
-      material="shader: flat; src: images/dark_wood.jpg"
-      sound="on: click; src: #click-sound"></a-entity>
-    <a-entity class="link"
-      geometry="primitive: plane; height: 2; width: 2"
-      material="shader: flat; src: images/dark_wood.jpg"
-      sound="on: click; src: #click-sound"></a-entity>
-  </a-entity>
   </script>
 </a-asset-item>
 
@@ -183,8 +176,12 @@
 
 
 
-<a-entity template="src: #plane" data-thumb="#dark_wood"></a-entity>
-  </a-scene>
+  <a-entity id="links" layout="layout: line; margin: 2.5" position="-7.42 2.20 7.45" rotation="0 90 0">
+    <a-entity template="src: #plane" data-thumb="#slip-bleu"></a-entity>
+    <a-entity template="src: #plane" data-thumb="#slip-blanc"></a-entity>
+    <a-entity template="src: #plane" data-thumb="#slip-rouge"></a-entity>
+  </a-entity>
+</a-scene>
   
   
   
