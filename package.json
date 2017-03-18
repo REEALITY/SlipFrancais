@@ -12,8 +12,12 @@
     "test": "./node_modules/.bin/mocha test/"
   },
   "dependencies": {
+    "annyang": "^2.6.0",
+    "bluebird": "^3.5.0",
     "express": "^4.15.2",
-    "jquery": "^3.2.0"
+    "jquery": "^3.2.0",
+    "speak-tts": "^1.0.2",
+    "speakable": "^0.3.0"
   },
   "devDependencies": {
     "grunt": "^1.0.1",

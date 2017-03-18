@@ -8,6 +8,8 @@ var assert = require('assert');
 describe('test the app', function() {
   var overlay_mock;
   var fiche_produit_mock;
+  var chatbot_mock;
+  var speech_mock;
   var app, deps;
   var add_to_cart_mock;
   var slip_items_mock;
@@ -29,6 +31,14 @@ describe('test the app', function() {
 
     slip_manager_mock = {};
     slip_manager_mock.selectSize = sinon.spy();
+  
+    chatbot_mock = {};
+    chatbot_mock.query = sinon.spy();
+
+    speech_mock = {};
+    speech_mock.init = sinon.spy();
+    speech_mock.listen = sinon.spy();
+    speech_mock.talk = sinon.spy();
 
     cart_checkout_button_mock = {};
     add_to_cart_mock = {};
@@ -54,19 +64,27 @@ describe('test the app', function() {
         return overlay_mock;
       }),
       './fiche_produit': fiche_produit_mock,
-      './slip_manager': slip_manager_mock
+      './slip_manager': slip_manager_mock,
+      './chatbot/chatbot': sinon.spy(function() {
+        return chatbot_mock;
+      }),
+      './speech': sinon.spy(function() {
+        return speech_mock;
+      })
     });
   });
 
   describe('when clicking on the add to cart button', function() {
     it('should add the product to the cart', function() {
+      speech_mock.init = sinon.stub().returns({ then: function() {} });
       add_to_cart_mock.on = sinon.stub().yields();
       app(deps); 
 
       assert(overlay_mock.addToCart.calledOnce);
     });
 
-    it.only('should add a selected product (color and size) in the cart', function() {
+    it('should add a selected product (color and size) in the cart', function() {
+      speech_mock.init = sinon.stub().returns({ then: function() {} });
       slip_manager_mock.attachClickListener = sinon.spy(function($, selected_slip) {
         selected_slip.slip = 'slip_bleu';
       });
@@ -84,6 +102,7 @@ describe('test the app', function() {
     });
 
     it('should redirect to login page when clicking on checkout', function() {
+      speech_mock.init = sinon.stub().returns({ then: function() {} });
       overlay_mock.onCheckoutClick = sinon.stub().yields();
       app(deps); 
 

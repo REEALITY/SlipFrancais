@@ -6,11 +6,34 @@ var fiche_produit = require('./fiche_produit');
 var css_classes = require('./css_classes');
 var CartBoard = require('./cart_board_overlay');
 var slip_selection_to_reference = require('./slip_selection_to_reference');
+var Speech = require('./speech');
+var Chatbot = require('./chatbot/chatbot');
+var dictionary = require('./chatbot/dictionary');
+
+function send_sentences_to_chatbot(chatbot, reply_callback) {
+  return function(sentences) {
+    for(var i=0; i<sentences.length; ++i) {
+      console.log('understood %s', sentences[i]);
+      var reply = chatbot.chat(sentences[i]);
+      if(reply && reply_callback) {
+        console.log('speak "%s"', reply);
+        reply_callback(reply);
+        return;
+      }
+      else {
+        console.log('not matching');
+      }
+    }
+  };
+}
 
 module.exports = function(deps) {
   var $ = deps.jQuery;
   var cart = new Cart(); 
   var cart_board = new CartBoard($);
+  var speech = new Speech(deps);
+  var chatbot = new Chatbot();
+
   var selected_slip = {slip : ''};
   var selected_options = {size : ''};
 
@@ -28,6 +51,17 @@ module.exports = function(deps) {
   slip_manager.attachClickListener($, selected_slip);
   fiche_produit.attachClickListener($, selected_options);
   fiche_produit.selectSize($, selected_options, $('#size_item_m'));
+
+  speech.init()
+  .then(function() {
+    speech.talk(dictionary.COLOR_QUESTION);
+  });
+
+  function chatbot_talk(message) {
+    speech.talk(message);
+  }
+
+  speech.listen(send_sentences_to_chatbot(chatbot, chatbot_talk));
 };
 
 function redirect_to_login_page(window) {
