@@ -1,5 +1,7 @@
 
 module.exports = {
   add_to_cart: '.cd-add-to-cart',
-  cart_board: '.cart_board',
+  slip_item: '.slip_item',
+  slip_item_bkg: '.slip_item_bkg',
+  fiche_produit: '.fiche_produit'
 };
