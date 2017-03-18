@@ -1,69 +1,54 @@
-<html class="a-html">
-
-
+<html class="a-html" ng-app="slipfrancais">
 <head>
-
   <title>Slip Français Shop</title>
   <meta charset="utf-8">
   <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="shortcut icon" href="images/favicon.ico">
-	
-	
-<script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
-<script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.3.0/dist/aframe-extras.min.js"></script>
-<script src="https://unpkg.com/aframe-template-component@^3.1.1/dist/aframe-template-component.min.js"></script>
-<script src="https://unpkg.com/aframe-layout-component@4.0.1/dist/aframe-layout-component.min.js"></script> 
-<script src="components/index.js"></script>   
-<script src="components/a-obj-models.js"></script> 
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <link href="css/please-wait.css" rel="stylesheet">
+  <link href="css/loading.css" rel="stylesheet">
 
+  <script src="components/index.js"></script>   
+  <script src="components/a-obj-models.js"></script> 
 
-<!-- Physics-->
-
-
-
+  <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.3.0/dist/aframe-extras.min.js"></script>
+  <script src="https://unpkg.com/aframe-template-component@^3.1.1/dist/aframe-template-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-layout-component@4.0.1/dist/aframe-layout-component.min.js"></script> 
 </head>
-
-<body>
+<body ng-controller="mainctrl">
 
 <a-scene >
-
-	   <a-entity camera wasd-controls look-controls keyboard-shortcuts  position="0 3 0"  ></a-entity>
-	   
-	   
-	  
-	  
-<a-assets>
-
-
-<a-asset-item id="box-obj" src="models/room3/box/Box vide_light_above.obj"></a-asset-item><a-asset-item id="box-mtl" src="models/room3/box/Box vide_light_above.mtl"  ></a-asset-item> 
-<img src="images/logo-slip-francais.jpg" id="logo"></img>   
-<img src="images/jean.jpg" id="jean"></img>
-<img src="images/jean2.jpg" id="jean2"></img>
-<img src="images/jean3.jpg" id="jean3"></img>
-<img src="images/dark_wood.jpg" id="dark_wood"></img>
-<img src="images/doors.jpg" id="doors"></img>
-<img src="images/rolling.jpg" id="rolling"></img>
-<img src="images/beatles.jpg" id="beatles"></img>
-<img src="images/plafond.jpg" id="plafond"></img>
-<img src="images/Sky_1.jpg" id="sky"></img>
-<img src="images/ombre radial 256px.png" id="shadow1"></img>
-<img src="images/slip-homme-bleu-foudroyant.jpg" id="slip-bleu"></img>
-<img src="images/slip-homme-gris-conquerant.jpg" id="slip-blanc"></img>
-<img src="images/slip-homme-rouge-fougeux.jpg" id="slip-rouge"></img>
-<a-asset-item id="table-obj" src="models/table/DiningTable01.obj"></a-asset-item> 
-<a-asset-item id="homme-obj" src="models/mannequin/mannequin.obj"></a-asset-item> 
-<a-asset-item id="why-male-models" src="models/man/man.dae"></a-asset-item>
-<script id="plane" type="text/html">
+  <a-entity camera wasd-controls look-controls keyboard-shortcuts  position="0 3 0"  ></a-entity>
+  <a-assets>
+    <a-asset-item id="box-obj" src="models/room3/box/Box vide_light_above.obj"></a-asset-item>
+    <a-asset-item id="box-mtl" src="models/room3/box/Box vide_light_above.mtl"  ></a-asset-item> 
+    <img src="images/logo-slip-francais.jpg" id="logo"></img>   
+    <img src="images/jean.jpg" id="jean"></img>
+    <img src="images/jean2.jpg" id="jean2"></img>
+    <img src="images/jean3.jpg" id="jean3"></img>
+    <img src="images/dark_wood.jpg" id="dark_wood"></img>
+    <img src="images/doors.jpg" id="doors"></img>
+    <img src="images/rolling.jpg" id="rolling"></img>
+    <img src="images/beatles.jpg" id="beatles"></img>
+    <img src="images/plafond.jpg" id="plafond"></img>
+    <img src="images/Sky_1.jpg" id="sky"></img>
+    <img src="images/ombre radial 256px.png" id="shadow1"></img>
+    <a-asset-item id="table-obj" src="models/table/DiningTable01.obj"></a-asset-item> 
+    <a-asset-item id="homme-obj" src="models/mannequin/mannequin.obj"></a-asset-item> 
+    <a-asset-item id="why-male-models" src="models/man/man.dae"></a-asset-item>
+    <a-asset-item id="standard" src="models/man/standard-male-figure.dae"></a-asset-item>
+  <script id="plane" type="text/html">
     <a-entity class="link"
       geometry="primitive: plane; height: 2; width: 2"
       material="shader: flat; src: ${thumb}"
       sound="on: click; src: #click-sound"></a-entity>
   </script>
-</a-asset-item>
-
-</a-assets>
-
-<a-sky src="#sky"></a-sky>
+  </a-assets>
+  
+  <a-sky src="#sky"></a-sky>
 
 	<!-- Plafond -->
 	<a-box  scale="1 5 20" position="-.05 9.5 -.91" rotation="0 90 90" visible="true" material="" geometry="primitive:box"></a-box>
@@ -174,20 +159,26 @@
 <a-box scale="0.1 0.8 20" position="0.02 1.23 -9.33" rotation="0 90 0" visible="true" material="src:url(images/white_wood_4.jpg)" geometry="primitive:box"></a-box>
 <a-box scale="0.1 10.72 20" position="0.02 1.6 -14.6" rotation="0 90 90" visible="true" material="src:url(images/white_wood.jpg); repeat: 1 2" geometry="primitive:box"></a-box>
 
-
-
   <a-entity id="links" layout="layout: line; margin: 2.5" position="-7.42 2.20 7.45" rotation="0 90 0">
     <a-entity template="src: #plane" data-thumb="#slip-bleu"></a-entity>
     <a-entity template="src: #plane" data-thumb="#slip-blanc"></a-entity>
     <a-entity template="src: #plane" data-thumb="#slip-rouge"></a-entity>
   </a-entity>
-</a-scene>
+  </a-scene>
+
+  <div class="inner" ng-view></div>
   
-  
-  
+  <script type="text/javascript" src="components/please-wait.min.js"></script>
+  <script type="text/javascript">
+    window.loading_screen = window.pleaseWait({
+      logo: "images/logo-slip.png",
+      backgroundColor: '#ffffff',
+      loadingHtml: ''
+    });
+    document.querySelector('a-assets').addEventListener('loaded', function () {
+      window.loading_screen.finish();
+    });
+  </script>
 </body>
-
-
-
-
+</html>
 
