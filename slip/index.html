@@ -54,7 +54,11 @@
 <img src="images/tex1.png" id="tex1"></img>
 <img src="images/portail.png" id="portail"></img>
 <img src="images/cadre.png" id="cadre"></img>
-<img src="images/FicheProduit2.png" id="portail"></img>
+<img src="images/fiche_produit/S.png" id="size_s"></img>
+<img src="images/fiche_produit/M.png" id="size_m"></img>
+<img src="images/fiche_produit/L.png" id="size_l"></img>
+<img src="images/fiche_produit/XL.png" id="size_xl"></img>
+<img src="images/FicheProduit2.png" id="fiche_produit"></img>
 <a-asset-item id="homme1-obj" src="models/Homme_1024/Homme_1024.obj"></a-asset-item>
 <a-asset-item id="homme1-mtl" src="models/Homme_1024/Homme_1024.mtl"></a-asset-item>
 <img src="images/city.jpg" id="city"></img>
@@ -77,17 +81,31 @@
 <script id="slip_item" type="text/html">
   <a-image 
      src= "${thumb}"
-     geometry="height: 0.75; width: 1; segmentsHeight:0; segmentsWidth:0 "
+     geometry="height: 0.75; width: 1;"
      material="shader: flat; transparent: true"
   </a-image>
 </script>
 <script id="slip_item_bkg" type="text/html">
   <a-entity 
-     geometry="primitive: plane; height: 0.74; width: 0.99; segmentsHeight:0; segmentsWidth:0 "
-     material="shader: flat; transparent: true; color: #000">
+     geometry="primitive: plane; height: 0.74; width: 0.99"
+     material="shader: flat; transparent: true; color: #1D3074">
   </a-entity>
 </script>
- 
+<script id="size_item" type="text/html">
+  <a-image 
+     src= "${thumb}"
+     geometry="height: 0.3; width: 0.3;"
+     material="shader: flat"
+  </a-image>
+</script>
+<script id="size_item_bkg" type="text/html">
+  <a-entity 
+     geometry="primitive: circle; radius:0.12"
+     scale="1 1 1"
+     material="shader: flat; color: #1D3074"
+     >
+  </a-entity>
+</script>
 
 </a-assets>
 
@@ -196,30 +214,41 @@
 <a-box scale="0.1 0.8 20" position="0.02 1.23 -9.33" rotation="0 90 0" visible="true" material="src:url(images/white_wood_4.jpg)" geometry="primitive:box"></a-box>
 <a-box scale="0.1 10.72 20" position="0.02 1.6 -14.6" rotation="0 90 90" visible="true" material="src:url(images/white_wood.jpg); repeat: 1 2" geometry="primitive:box"></a-box>
 
-<a-entity id="links" layout="type: box; columns: 2; margin: 1.1" position="3 2 4" rotation="0 -30 0">
+<a-entity id="slip_items" layout="type: box; columns: 2; margin: 1.1" position="3 2 4" rotation="0 -30 0">
     <a-entity id="slip_bleu" class="slip_item" template="src: #slip_item" data-thumb="#slip-bleu" ></a-entity>
     <a-entity id="slip_gris" class="slip_item" template="src: #slip_item" data-thumb="#slip-gris"></a-entity>
     <a-entity id="slip_blanc" class="slip_item" template="src: #slip_item" data-thumb="#slip-blanc"></a-entity>
     <a-entity id="slip_rouge" class="slip_item" template="src: #slip_item" data-thumb="#slip-rouge"></a-entity>
   </a-entity>
 
-<a-entity id="links" layout="type: box; columns: 2; margin: 1.1" position="3 2 3.99" rotation="0 -30 0">
+<a-entity id="slip_item_bkgs" layout="type: box; columns: 2; margin: 1.1" position="3 2 3.99" rotation="0 -30 0">
     <a-entity id="slip_bleu_bkg" class="slip_item_bkg" template="src: #slip_item_bkg"></a-entity>
     <a-entity id="slip_gris_bkg" class="slip_item_bkg" template="src: #slip_item_bkg"></a-entity>
     <a-entity id="slip_blanc_bkg" class="slip_item_bkg" template="src: #slip_item_bkg"></a-entity>
     <a-entity id="slip_rouge_bkg" class="slip_item_bkg" template="src: #slip_item_bkg"></a-entity>
   </a-entity>
+<a-entity id="size_items" class="fiche_produit" layout="type: line; margin: 0.3" position="-3.45 2.54 4.10" rotation="0 30 0" visible="false">
+    <a-entity id="size_item_s" class="size_item" template="src: #size_item" data-thumb="#size_s"></a-entity>
+    <a-entity id="size_item_m" class="size_item" template="src: #size_item" data-thumb="#size_m"></a-entity>
+    <a-entity id="size_item_l" class="size_item" template="src: #size_item" data-thumb="#size_l"></a-entity>
+    <a-entity id="size_item_xl" class="size_item" template="src: #size_item" data-thumb="#size_xl"></a-entity>
+</a-entity>
+<a-entity id="size_item_bkgs" class="fiche_produit" layout="type: line; margin: 0.3" position="-3.42 2.54 4.05" rotation="0 30 0" visible="false">
+    <a-entity id="size_item_s_bkg" class="size_item_bkg" visible="false" template="src: #size_item_bkg"></a-entity>
+    <a-entity id="size_item_m_bkg" class="size_item_bkg" visible="false" template="src: #size_item_bkg"></a-entity>
+    <a-entity id="size_item_l_bkg" class="size_item_bkg" visible="false" template="src: #size_item_bkg"></a-entity>
+    <a-entity id="size_item_xl_bkg" class="size_item_bkg" visible="false" template="src: #size_item_bkg"></a-entity>
+</a-entity>
+
   <a-entity id="fiche_produit" class="fiche_produit" rotation="0 30 0"
      geometry="primitive: plane; height: 4; width: 2.66"
-     material="src: images/FicheProduit2.png" position="-3.41 2.45 4" visible="false"></a-entity>
+     material="src: images/fiche_produit/FicheProduit.png" position="-3.41 2.45 4" visible="false"></a-entity>
   <a-entity id="add_to_cart_buttn" class="fiche_produit cd-add-to-cart" data-ref="AAA" rotation="0 30 0"
      geometry="primitive: plane; height: 0.5; width: 2.66"
-     material="color:#000" position="-3.40 1.65 4.01" visible="false"></a-entity>
+     material="src: url(images/fiche_produit/ajout_panier.png)" position="-3.40 1.65 4.01" visible="false" ></a-entity>
   </a-scene>
 
-
   <div class="inner" ng-view></div>
-
   <div class="cd-cart-container empty">
     <a href="#0" class="cd-cart-trigger">
       Cart
