@@ -1,1 +1,4 @@
 node_modules/
+
+slip/components/app.js
+dist/
