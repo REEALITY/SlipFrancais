@@ -278,15 +278,15 @@
   
   <script type="text/javascript" src="components/please-wait.min.js"></script>
   <script type="text/javascript">
-    /*window.loading_screen = window.pleaseWait({
+    window.loading_screen = window.pleaseWait({
       logo: "images/logo-slip.png",
       backgroundColor: '#ffffff',
       loadingHtml: 'Bienvenue'
-    });*/
+    });
     document.querySelector('a-assets').addEventListener('loaded', function () {
-      /*setTimeout(function() {
+      setTimeout(function() {
         window.loading_screen.finish();
-      }, 1500);*/
+      }, 5000);
     });
   </script>
   <script src="components/app.js"></script>   
