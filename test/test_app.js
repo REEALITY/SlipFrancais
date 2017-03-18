@@ -7,11 +7,33 @@ var assert = require('assert');
 
 describe('test the app', function() {
   var overlay_mock;
-  var app;
+  var app, deps;
+  var add_to_cart_mock;
+  var slip_items_mock;
+  var cart_checkout_button_mock;
 
   beforeEach(function() {
+    deps = {
+      jQuery: sinon.stub(),
+      window: {}
+    };
     overlay_mock = sinon.createStubInstance(CartBoardOverlay);
     overlay_mock.addToCart = sinon.spy();
+    overlay_mock.onCheckoutClick = sinon.spy();
+
+    cart_checkout_button_mock = {};
+    add_to_cart_mock = {};
+    slip_items_mock = {};
+    
+    cart_checkout_button_mock.on = sinon.stub();
+    add_to_cart_mock.on = sinon.stub();
+    slip_items_mock.on = sinon.stub();
+
+    deps.jQuery.withArgs(css_classes.cart_checkout_button)
+      .returns(cart_checkout_button_mock);
+    deps.jQuery.withArgs(css_classes.add_to_cart).returns(add_to_cart_mock);
+    deps.jQuery.withArgs(css_classes.slip_item).returns(slip_items_mock);
+
     app = proxyquire('../src/app', {
       './cart_board_overlay': sinon.spy(function() {
         return overlay_mock;
@@ -20,23 +42,20 @@ describe('test the app', function() {
   });
 
   describe('when clicking on the add to cart button', function() {
-    var deps;
-    beforeEach(function() {
-      deps = {
-        jQuery: sinon.stub()
-      };
-    });
-
     it('should add the product to the cart', function() {
-      var add_to_cart_mock = {};
       add_to_cart_mock.on = sinon.stub().yields();
-
-      deps.jQuery.withArgs(css_classes.add_to_cart).returns(add_to_cart_mock);
       deps.jQuery.returns({ data: function() { return 'AAA'; } });
       app(deps); 
 
       assert(overlay_mock.addToCart.calledWith('AAA'));
       assert.equal(overlay_mock.addToCart.getCall(0).args[1].price, 10.0);
+    });
+
+    it('should redirect to login page when clicking on checkout', function() {
+      overlay_mock.onCheckoutClick = sinon.stub().yields();
+      app(deps); 
+
+      assert(deps.window.location.startsWith("https://www.leslipfrancais.fr/authentification"));
     });
   });
 });
