@@ -88,12 +88,6 @@
 <a-asset-item id="cadre2-obj" src="models\cadre2\HaiVanPassFrame.obj"></a-asset-item>
 <a-asset-item id="cadre2-mtl" src="models\cadre2\HaiVanPassFrame.mtl"></a-asset-item>
 
-<a-asset-item id="plant-obj" src="models\rar\topfpflanze_final.obj"></a-asset-item>
-<a-asset-item id="plant-mtl" src="models\rar\topfpflanze_final.mtl"></a-asset-item>
-  
-
-
-
 <script id="slip_item" type="text/html">
   <a-image 
      src= "${thumb}"
@@ -118,8 +112,7 @@
   <a-entity 
      geometry="primitive: circle; radius:0.15"
      scale="1 1 1"
-     material="shader: flat; color: #1D3074"
-     >
+     material="shader: flat; color: #1D3074">
   </a-entity>
 </script>
 
@@ -196,13 +189,7 @@
 <a-torus static-body scale=".75 .75 1" position="-7.31 .75 2.26" rotation="90 0 0" visible="true" material="src:#jean2; reflectivity:0.5; roughness:1"></a-torus> 
 
 <a-collada-model src="#homme1"  scale=".02 .02 .02" position="0 0 4" rotation="90 0 0" ></a-collada-model> <a-image src="#shadow1" position="0 0.02 4" rotation="90 0 0" scale="2 2 2" opacity=".4"></a-image>	
-<a-collada-model src="#homme2"  scale=".02 .02 .02" position="3 0 4" rotation="90 0 0" ></a-collada-model> <a-image src="#shadow1" position="0 0.02 4" rotation="90 0 0" scale="2 2 2" opacity=".4"></a-image>	
 
-<a-collada-model src="#slipbleu"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0"  ></a-collada-model> 
-<a-collada-model src="#slipblanc"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
-<a-collada-model src="#sliprouge"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
-<a-collada-model src="#slipgris"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
- 
 <a-image src="#portail" position="0.06 2.58 19.57" rotation="0 180 0" scale="6.8 5.96 4"></a-image>	 	  
 
 	<!-- déco mur gauche -->
@@ -273,7 +260,7 @@
   <a-entity id="fiche_produit" class="fiche_produit" rotation="0 30 0"
      geometry="primitive: plane; height: 4; width: 2.66"
      material="src: images/fiche_produit/FicheProduit.png" position="-3.41 2.45 4" visible="false"></a-entity>
-  <a-entity id="add_to_cart_buttn" class="fiche_produit cd-add-to-cart" data-ref="AAA" rotation="0 30 0"
+  <a-entity id="add_to_cart_buttn" class="fiche_produit cd-add-to-cart" rotation="0 30 0"
      geometry="primitive: plane; height: 0.5; width: 2.66"
      material="src: url(images/fiche_produit/ajout_panier.png)" position="-3.40 1.65 4.01" visible="false" ></a-entity>
   </a-scene>
