@@ -17,6 +17,12 @@ module.exports = function(deps) {
   cart_board_overlay.on_close_clicked(function() {
     cart_board_overlay.hide();
   });
+  var slip_items = $(css_classes.slip_item);
+  slip_items.on('click', function(e) {
+    var id = $(this).attr('id');
+    console.log(id);
+  });
+  
 };
 
 function display_cart(cart_board_overlay) {
