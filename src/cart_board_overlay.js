@@ -5,9 +5,9 @@ module.exports = CartBoard;
 
 function CartBoard($) {
   var cartWrapper = $('.cd-cart-container');
+  var cartCheckout = cartWrapper.find(css_classes.cart_checkout_button);
   
   if( cartWrapper.length > 0 ) {
-    //store jQuery objects
     var cartBody = cartWrapper.find('.body');
     var cartList = cartBody.find('ul').eq(0);
     var cartTotal = cartWrapper.find('.checkout').find('span');
@@ -180,8 +180,13 @@ function CartBoard($) {
       cartTotal.text( (Number(cartTotal.text()) - Number(price)).toFixed(2) );
   }
 
+  function onCheckoutClick(fn) {
+    cartCheckout.on('click', fn);
+  }
+
   return {
-    addToCart: addToCart
+    addToCart: addToCart,
+    onCheckoutClick: onCheckoutClick
   };
 }
 
