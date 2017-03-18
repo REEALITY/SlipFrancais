@@ -49,6 +49,12 @@
 <img src="images/cadre.png" id="cadre"></img>
 <a-asset-item id="homme1-obj" src="models/Homme_1024/Homme_1024.obj"></a-asset-item>
 <a-asset-item id="homme1-mtl" src="models/Homme_1024/Homme_1024.mtl"></a-asset-item>
+<img src="images/city.jpg" id="city"></img>
+<a-asset-item id="slipbleu" src="models/bleu2/slip_bleu.dae"></a-asset-item>
+<!--<a-asset-item id="slipblanc" src="models/bleu2/slip_blanc.dae"></a-asset-item>
+<a-asset-item id="sliprouge" src="models/bleu2/slip_rouge.dae"></a-asset-item> -->
+
+
 
 
 <script id="slip_item" type="text/html">
@@ -64,11 +70,12 @@
      material="shader: flat; transparent: true; color: #000">
   </a-entity>
 </script>
-
+ 
 
 </a-assets>
 
 <a-sky src="#sky"></a-sky>
+<a-image src="#city" position="0 3 120" rotation="0 0 0" scale="90 60 1"></a-image>	 
 
 	<!-- Plafond -->
 	<a-box  scale=".1 8 20" position="-.05 6.43 1.12" rotation="0 90 90" visible="true" material="" geometry="primitive:box"></a-box>
@@ -137,7 +144,10 @@
 <a-torus static-body scale="1.5 1.5 2" position="6.2 .75 9.6" rotation="90 0 0" visible="true" material="src:#jean2; reflectivity:0.5; roughness:1"></a-torus> -->
 
 <a-obj-model src="#homme1-obj" mtl="#homme1-mtl"   scale=".02 .02 .02" position="0 0 4" rotation="0 0 0" ></a-obj-model> 
-
+<a-collada-model src="#slipbleu"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
+<a-collada-model src="#slipblanc"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
+<a-collada-model src="#sliprouge"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
+ 
 <a-image src="#portail" position="0.06 2.58 19.57" rotation="0 180 0" scale="6.8 5.96 4"></a-image>	 	 
 
 	
