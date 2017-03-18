@@ -18,7 +18,6 @@ module.exports = function(deps) {
   $(css_classes.add_to_cart).on('click', function() {
     var reference = $(this).data('ref');
     var article = articles[reference];
-
     cart_board.addToCart(reference, article);
   });
 
