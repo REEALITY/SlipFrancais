@@ -1,7 +1,7 @@
 var css_classes = require("./css_classes");
 
 var BKG_SUFFIX = "_bkg";
-var SCALE = "1.05";
+var SCALE = "1.1";
 
 function displaySelected($, id) {
     var slip_items_bkg = $(css_classes.slip_item_bkg);
