@@ -12,6 +12,12 @@ module.exports = function(deps) {
   add_to_cart_button.on('click', function() {
     display_cart($); 
   });
+  var slip_items = $(css_classes.slip_item);
+  console.log("attaching listeners");
+  slip_items.on('click', function() {
+    console.log('coucou');  
+  });
+  
 };
 
 function display_cart($) {
