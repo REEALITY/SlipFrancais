@@ -1,9 +1,11 @@
 
 module.exports = {
-  add_to_cart: '.add_to_cart',
-  cart_board: '.cart_board',
-  cart_board_close_button: '.cart_board .close_button',
+  add_to_cart: '.cd-add-to-cart',
+  cart_checkout_button: '.checkout',
   slip_item: '.slip_item',
   slip_item_bkg: '.slip_item_bkg',
-  fiche_produit: '.fiche_produit'
+  fiche_produit: '.fiche_produit',
+  size_item:'.size_item',
+  size_item_bkg: '.size_item_bkg',
+  slip_model: '.slip_model'
 };
