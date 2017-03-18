@@ -11,9 +11,10 @@
   <link href="https://fonts.googleapis.com/css?family=Cantarell:700" rel="stylesheet">
   <link href="css/please-wait.css" rel="stylesheet">
   <link href="css/loading.css" rel="stylesheet">
- <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
- <script src="components/index.js"></script>   
- <script src="components/a-obj-models.js"></script> 
+  <link href="css/default.css" rel="stylesheet">
+  <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+  <script src="components/index.js"></script>   
+  <script src="components/a-obj-models.js"></script> 
   <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.3.0/dist/aframe-extras.min.js"></script>
   <script src="https://unpkg.com/aframe-template-component@^3.1.1/dist/aframe-template-component.min.js"></script>
   <script src="https://unpkg.com/aframe-layout-component@4.0.1/dist/aframe-layout-component.min.js"></script> 
@@ -57,11 +58,16 @@
 
 
 <script id="slip_item" type="text/html">
-  <a-entity class="link"
-     geometry="primitive: plane; height: 1.5; width: 1.5"
-     material="shader: flat; src: ${thumb}"
-     event-set__1="_event: mouseenter; scale: 1.25 1.25 1.25"
-     event-set__2="_event: mouseleave; scale: 1 1 1">
+  <a-image 
+     src= "${thumb}"
+     geometry="height: 1; width: 1; segmentsHeight:0; segmentsWidth:0 "
+     material="shader: flat; transparent: true"
+  </a-image>
+</script>
+<script id="slip_item_bkg" type="text/html">
+  <a-entity 
+     geometry="primitive: plane; height: 1; width: 1; segmentsHeight:0; segmentsWidth:0 "
+     material="shader: flat; transparent: true; color: #000">
   </a-entity>
 </script>
  
@@ -131,8 +137,6 @@
 <a-box scale="0.2 0.2 13.96" position="-5.82 5 0" rotation="128.4 90 0" visible="true" material="src: url(images/white_wood_6.jpg); repeat: 2 2" geometry="primitive:box"></a-box>
 
 
-
-	
 	<!-- déco sol -->
 <!-- 	
 <a-torus static-body scale="1.5 1.5 2" position="6.2 .75 1.16" rotation="90 0 0" visible="true" material="src:#jean; reflectivity:0.5; roughness:1"></a-torus>	
@@ -143,9 +147,6 @@
 <a-collada-model src="#slipbleu"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
 <a-collada-model src="#slipblanc"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
 <a-collada-model src="#sliprouge"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
- 
-
-   
  
 <a-image src="#portail" position="0.06 2.58 19.57" rotation="0 180 0" scale="6.8 5.96 4"></a-image>	 	 
 
@@ -163,16 +164,31 @@
 <a-box scale="0.1 0.8 20" position="0.02 1.23 -9.33" rotation="0 90 0" visible="true" material="src:url(images/white_wood_4.jpg)" geometry="primitive:box"></a-box>
 <a-box scale="0.1 10.72 20" position="0.02 1.6 -14.6" rotation="0 90 90" visible="true" material="src:url(images/white_wood.jpg); repeat: 1 2" geometry="primitive:box"></a-box>
 
-<a-entity id="links" layout="type: box; columns: 2; margin: 2.5" position="8.40 2.20 7.45" rotation="0 -90 0">
-    <a-entity class="slip_item" template="src: #slip_item" data-thumb="#slip-bleu" ></a-entity>
-    <a-entity class="slip_item" template="src: #slip_item" data-thumb="#slip-gris"></a-entity>
-    <a-entity class="slip_item" template="src: #slip_item" data-thumb="#slip-blanc"></a-entity>
-    <a-entity class="slip_item" template="src: #slip_item" data-thumb="#slip-rouge"></a-entity> 
+<a-entity id="links" layout="type: box; columns: 2; margin: 1.1" position="3 2 4" rotation="0 0 0">
+    <a-entity id="slip_bleu" class="slip_item" template="src: #slip_item" data-thumb="#slip-bleu" ></a-entity>
+    <a-entity id="slip_gris" class="slip_item" template="src: #slip_item" data-thumb="#slip-gris"></a-entity>
+    <a-entity id="slip_blanc" class="slip_item" template="src: #slip_item" data-thumb="#slip-blanc"></a-entity>
+    <a-entity id="slip_rouge" class="slip_item" template="src: #slip_item" data-thumb="#slip-rouge"></a-entity>
   </a-entity>
 
-  <div class="inner" ng-view></div>
-  
+<a-entity id="links" layout="type: box; columns: 2; margin: 1.1" position="3 2 3.99" rotation="0 0 0">
+    <a-entity id="slip_bleu_bkg" class="slip_item_bkg" template="src: #slip_item_bkg"></a-entity>
+    <a-entity id="slip_gris_bkg" class="slip_item_bkg" template="src: #slip_item_bkg"></a-entity>
+    <a-entity id="slip_blanc_bkg" class="slip_item_bkg" template="src: #slip_item_bkg"></a-entity>
+    <a-entity id="slip_rouge_bkg" class="slip_item_bkg" template="src: #slip_item_bkg"></a-entity>
+  </a-entity>
   </a-scene>
+
+  <div class="inner" ng-view></div>
+
+  <div class="cart_board overlay">
+    <a href="javascript:void(0)" class="close_button">&times;</a>
+    <div class="overlay-content">
+      <h1 class="title"></h1>
+      <div class="description"></div>
+      <div class="total"></div>
+    </div>
+  </div>
   
   <script type="text/javascript" src="components/please-wait.min.js"></script>
   <script type="text/javascript">
