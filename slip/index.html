@@ -6,21 +6,29 @@
   <title>Slip Français Shop</title>
   <meta charset="utf-8">
   <meta name="apple-mobile-web-app-capable" content="yes">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="shortcut icon" href="images/favicon.ico">
 	
 	
-<script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
-<script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.3.0/dist/aframe-extras.min.js"></script>
-
-<script src="components/index.js"></script>   
-<script src="components/a-obj-models.js"></script> 
- <script src="dist/aframe-no-click-look-controls.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Cantarell:700" rel="stylesheet">
+  <link href="css/please-wait.css" rel="stylesheet">
+  <link href="css/loading.css" rel="stylesheet">
+ 
+ <script src="components/index.js"></script>   
+ <script src="components/a-obj-models.js"></script> 
+ 
+  <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.3.0/dist/aframe-extras.min.js"></script>
+  <script src="https://unpkg.com/aframe-template-component@^3.1.1/dist/aframe-template-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-layout-component@4.0.1/dist/aframe-layout-component.min.js"></script> 
 
 <!-- Physics-->
 
 
 
 </head>
+
 
 <body>
 
@@ -43,9 +51,20 @@
 <img src="images/plafond.jpg" id="plafond"></img>
 <img src="images/Sky_1.jpg" id="sky"></img>
 <img src="images/ombre radial 256px.png" id="shadow1"></img>
+ <img src="images/slip-homme-bleu-foudroyant.jpg" id="slip-bleu"></img>
+<img src="images/slip-homme-gris-conquerant.jpg" id="slip-blanc"></img>
+<img src="images/slip-homme-rouge-fougeux.jpg" id="slip-rouge"></img>
+
 <img src="images/creation.jpg" id="creation"></img>
 <img src="images/mozaic.png" id="mozaic"></img>
 <img src="images/tex1.png" id="tex1"></img>
+
+<script id="plane" type="text/html">
+  <a-entity class="link"
+     geometry="primitive: plane; height: 2; width: 2"
+     material="shader: flat; src: ${thumb}"
+     sound="on: click; src: #click-sound"></a-entity>
+  </script>
 
 
 <a-asset-item id="homme1-obj" src="models/Homme_1024/Homme_1024.obj"></a-asset-item>
@@ -151,14 +170,31 @@
 <a-box scale="0.1 0.8 20" position="0.02 1.23 -9.33" rotation="0 90 0" visible="true" material="src:url(images/white_wood_4.jpg)" geometry="primitive:box"></a-box>
 <a-box scale="0.1 10.72 20" position="0.02 1.6 -14.6" rotation="0 90 90" visible="true" material="src:url(images/white_wood.jpg); repeat: 1 2" geometry="primitive:box"></a-box>
 
+<a-entity id="links" layout="layout: line; margin: 2.5" position="-7.42 2.20 7.45" rotation="0 90 0">
+   <a-entity template="src: #plane" data-thumb="#slip-bleu"></a-entity>
+    <a-entity template="src: #plane" data-thumb="#slip-blanc"></a-entity>
+    <a-entity template="src: #plane" data-thumb="#slip-rouge"></a-entity>
+  </a-entity>
 
-
+  <div class="inner" ng-view></div>
+  
   </a-scene>
   
-  
+  <script type="text/javascript" src="components/please-wait.min.js"></script>
+  <script type="text/javascript">
+    window.loading_screen = window.pleaseWait({
+      logo: "images/logo-slip.png",
+      backgroundColor: '#ffffff',
+      loadingHtml: 'Bienvenue'
+    });
+    document.querySelector('a-assets').addEventListener('loaded', function () {
+      setTimeout(function() {
+        window.loading_screen.finish();
+      }, 1500);
+    });
+  </script>
   
 </body>
-
 
 
 
