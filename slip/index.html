@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Cantarell:700" rel="stylesheet">
   <link href="css/please-wait.css" rel="stylesheet">
   <link href="css/loading.css" rel="stylesheet">
+  <link href="css/default.css" rel="stylesheet">
  
   <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
   <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.3.0/dist/aframe-extras.min.js"></script>
@@ -132,7 +133,7 @@
 <a-torus static-body scale="1.5 1.5 2" position="6.2 .75 9.6" rotation="90 0 0" visible="true" material="src:#jean2; reflectivity:0.5; roughness:1"></a-torus> -->
 
 <a-obj-model src="#homme1-obj" mtl="#homme1-mtl"   scale=".02 .02 .02" position="5 0 8.54" rotation="0 270 0" ></a-obj-model> 
-<a-image src="#creation" position="0 3.6 3.76" rotation="" scale="2 2 2"></a-image>	    
+<a-image src="#creation" class="add_to_cart" position="0 3.6 3.76" rotation="" scale="2 2 2"></a-image>	    
 
 	<!--	<a-obj-model src="#homme1-obj" mtl="#homme1-mtl"   scale=".02 .02 .02" position="0 0 4" rotation="0 270 0" ></a-obj-model>   -->
 
@@ -162,9 +163,19 @@
     <a-entity template="src: #slip_item" data-thumb="#slip-rouge"></a-entity>
   </a-entity>
 
-  <div class="inner" ng-view></div>
   
   </a-scene>
+
+  <div class="inner" ng-view></div>
+
+  <div class="cart_board overlay">
+    <a href="javascript:void(0)" class="close_button">&times;</a>
+    <div class="overlay-content">
+      <h1 class="title"></h1>
+      <div class="description"></div>
+      <div class="total"></div>
+    </div>
+  </div>
   
   <script type="text/javascript" src="components/please-wait.min.js"></script>
   <script type="text/javascript">
