@@ -47,10 +47,10 @@
 
 <script id="slip_item" type="text/html">
   <a-entity class="link"
-     geometry="primitive: plane; height: 2; width: 2"
+     geometry="primitive: plane; height: 1.5; width: 1.5"
      material="shader: flat; src: ${thumb}"
-     event-set__1="_event: mouseenter; material.color: blue"
-     event-set__2="_event: mouseenter; material.color: blue">
+     event-set__1="_event: mouseenter; scale: 1.25 1.25 1.25"
+     event-set__2="_event: mouseleave; scale: 1 1 1">
   </a-entity>
 </script>
 
