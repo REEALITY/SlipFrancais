@@ -18,7 +18,6 @@ module.exports = function(deps) {
     var reference = slip_selection_to_reference(selected_slip.slip, 
       selected_options.size);
     var article = articles[reference];
-
     cart_board.addToCart(reference, article);
   });
 

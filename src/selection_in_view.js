@@ -1,4 +1,3 @@
-var BKG_SUFFIX = "_bkg";
 var SCALE = "1.1";
 
 module.exports.strategyVisible = function(element, isSelected)
