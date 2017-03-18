@@ -62,8 +62,6 @@
 <img src="images/fiche_produit/L.png" id="size_l"></img>
 <img src="images/fiche_produit/XL.png" id="size_xl"></img>
 <img src="images/FicheProduit2.png" id="fiche_produit"></img>
-<a-asset-item id="homme1-obj" src="models/Homme_1024/Homme_1024.obj"></a-asset-item>
-<a-asset-item id="homme1-mtl" src="models/Homme_1024/Homme_1024.mtl"></a-asset-item>
 <img src="images/city.jpg" id="city"></img>
 <a-asset-item id="slipbleu" src="models/slip/bleu/slip_bleu.dae"></a-asset-item>
 <a-asset-item id="slipblanc" src="models/slip/blanc/slip_blanc.dae"></a-asset-item>
@@ -85,7 +83,6 @@
 
 <a-asset-item id="cadre2-obj" src="models\cadre2\HaiVanPassFrame.obj"></a-asset-item>
 <a-asset-item id="cadre2-mtl" src="models\cadre2\HaiVanPassFrame.mtl"></a-asset-item>
-  
 
 <a-asset-item id="plant-obj" src="models\Indoor_plant_3\Low-Poly Plant_.obj"></a-asset-item>
 <a-asset-item id="plant-mtl" src="models\Indoor_plant_3\Low-Poly Plant_.mtl"></a-asset-item>
@@ -116,8 +113,7 @@
   <a-entity 
      geometry="primitive: circle; radius:0.15"
      scale="1 1 1"
-     material="shader: flat; color: #1D3074"
-     >
+     material="shader: flat; color: #1D3074">
   </a-entity>
 </script>
 
@@ -194,10 +190,10 @@
 <a-torus static-body scale=".75 .75 1" position="-7.31 .75 2.26" rotation="90 0 0" visible="true" material="src:#jean2; reflectivity:0.5; roughness:1"></a-torus> 
 
 <a-collada-model src="#homme1"  scale=".02 .02 .02" position="0 0 4" rotation="90 0 0" ></a-collada-model> <a-image src="#shadow1" position="0 0.02 4" rotation="90 0 0" scale="2 2 2" opacity=".4"></a-image>	
-<a-collada-model src="#slipbleu"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0"  ></a-collada-model> 
-<a-collada-model src="#slipblanc"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
-<a-collada-model src="#sliprouge"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
-<a-collada-model src="#slipgris"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
+<a-collada-model id="slip_bleu_model" class="slip_model" src="#slipbleu"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0"  ></a-collada-model> 
+<a-collada-model id="slip_blanc_model" class="slip_model" src="#slipblanc"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
+<a-collada-model id="slip_rouge_model" class="slip_model" src="#sliprouge"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
+<a-collada-model id="slip_gris_model" class="slip_model" src="#slipgris"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
  
 <a-image src="#portail" position="0.06 2.58 19.57" rotation="0 180 0" scale="6.8 5.96 4"></a-image>	 	  
 
