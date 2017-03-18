@@ -12,8 +12,9 @@ function extractEntity(query, entitySet) {
 
 module.exports = function() { 
     this.state = dictionary.ASK_COLOR;
-    this.chat = function(query, config) {
+    this.chat = function(query) {
         query = query.toLowerCase();
+        var reply = "";
         if (this.state === dictionary.ASK_COLOR)
         {
             var chosenColor = extractEntity(query, dictionary.COLORS);
@@ -21,8 +22,9 @@ module.exports = function() {
                 return dictionary.DIDNT_UNDERSTAND;
             else
             {
+                this.config.chosenColor = chosenColor;
                 this.state = dictionary.ASK_SIZE; 
-                var reply = dictionary.UNDERSTOOD + chosenColor+ ".";
+                reply = dictionary.UNDERSTOOD + chosenColor+ ".";
                 reply += " "+dictionary.CORPULENCE_QUESTION;
                 return reply;
             }
@@ -35,10 +37,10 @@ module.exports = function() {
             else
             {
                 this.state = dictionary.FINISHED; 
-                var reply = dictionary.UNDERSTOOD + chosenCorpulence+ ".";
+                reply = dictionary.UNDERSTOOD + chosenCorpulence+ ".";
                 reply += " "+dictionary.FINISH;
                 return reply;
             }
         }
-    }
-}
+    };
+};
