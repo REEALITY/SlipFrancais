@@ -23,7 +23,16 @@
 <body>
 
 <a-scene >
-<a-entity camera wasd-controls look-controls keyboard-shortcuts  position="0 3 8.43"  rotation="0 270 0"></a-entity>
+<a-entity wasd-controls look-controls keyboard-shortcuts  position="0 3 8.43"  rotation="0 270 0"></a-entity>
+<a-camera>
+  <a-cursor id="cursor">
+    <a-animation begin="click" easing="ease-in" attribute="scale"
+                  fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-animation>
+    <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale"
+                  from="1 1 1" to="0.1 0.1 0.1" dur="1500"></a-animation>
+  </a-cursor>
+</a-camera>
+  
 <a-assets>
 <a-asset-item id="box-obj" src="models/room3/box/Box vide_light_above.obj"></a-asset-item><a-asset-item id="box-mtl" src="models/room3/box/Box vide_light_above.mtl"  ></a-asset-item> 
 <img src="images/logo-slip-francais.jpg" id="logo"></img>   
