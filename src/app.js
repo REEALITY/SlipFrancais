@@ -19,7 +19,7 @@ module.exports = function(deps) {
   cart_board_overlay.on_close_clicked(function() {
     cart_board_overlay.hide();
   });
-  slip_manager.attachClickListener($);
+  slip_manager.attachClickListener($, selected_slip);
 };
 
 function display_cart(cart_board_overlay) {
