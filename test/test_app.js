@@ -10,6 +10,7 @@ describe('test the app', function() {
   var app, deps;
   var add_to_cart_mock;
   var slip_items_mock;
+  var size_items_mock;
   var cart_checkout_button_mock;
 
   beforeEach(function() {
@@ -24,15 +25,18 @@ describe('test the app', function() {
     cart_checkout_button_mock = {};
     add_to_cart_mock = {};
     slip_items_mock = {};
+    size_item_mock = {};
     
     cart_checkout_button_mock.on = sinon.stub();
     add_to_cart_mock.on = sinon.stub();
     slip_items_mock.on = sinon.stub();
+    size_item_mock.on = sinon.stub();
 
     deps.jQuery.withArgs(css_classes.cart_checkout_button)
       .returns(cart_checkout_button_mock);
     deps.jQuery.withArgs(css_classes.add_to_cart).returns(add_to_cart_mock);
     deps.jQuery.withArgs(css_classes.slip_item).returns(slip_items_mock);
+    deps.jQuery.withArgs(css_classes.size_item).returns(size_item_mock);
 
     app = proxyquire('../src/app', {
       './cart_board_overlay': sinon.spy(function() {
