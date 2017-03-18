@@ -1,6 +1,11 @@
 
+var app = require('./app');
 global.jQuery = require('jquery');
 
+var deps = {
+  jQuery: global.jQuery
+}
+
 jQuery(function(){
-  console.log('hello hey');
+  app(deps); 
 });
