@@ -12,4 +12,4 @@ module.exports = {
   'DDDDD': {
     price: 40.0
   }
-}
+};

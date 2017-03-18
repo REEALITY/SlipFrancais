@@ -12,7 +12,7 @@ module.exports = function(deps) {
   add_to_cart_button.on('click', function() {
     display_cart($); 
   });
-}
+};
 
 function display_cart($) {
   $(css_classes.cart_board).show();

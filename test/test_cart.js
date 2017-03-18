@@ -11,7 +11,7 @@ describe('test the cart', function() {
   });
 
   it('should add an article to the cart', function() {
-    var ref = 'AAAA'
+    var ref = 'AAAA';
     cart.add(ref, 4);
     assert(cart.has('AAAA'));
   });

@@ -9,7 +9,7 @@ describe('test the app', function() {
     beforeEach(function() {
       deps = {
         jQuery: sinon.stub()
-      }
+      };
     });
 
     it('should display the cart', function(done) {
@@ -19,8 +19,8 @@ describe('test the app', function() {
       add_to_cart_mock.on = sinon.stub().yields();
       cart_board_mock.show = sinon.spy(done);
 
-      deps.jQuery.withArgs(css_classes.add_to_cart).returns(add_to_cart_mock)
-      deps.jQuery.withArgs(css_classes.cart_board).returns(cart_board_mock)
+      deps.jQuery.withArgs(css_classes.add_to_cart).returns(add_to_cart_mock);
+      deps.jQuery.withArgs(css_classes.cart_board).returns(cart_board_mock);
       app(deps); 
     });
   });
