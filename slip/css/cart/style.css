@@ -115,10 +115,19 @@ Main Components
       -ms-transform: translateY(150px);
           transform: translateY(150px);
 }
+
 @media only screen and (min-width: 1170px) {
   .cd-cart-trigger,
   .cd-cart {
     bottom: 20px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .cd-cart-trigger,
+  .cd-cart {
+    right: 20px;
+    bottom: 60px;
   }
 }
 
