@@ -98,9 +98,15 @@ function CartBoard($) {
     if(!product || product.length === 0) {
       var productAdded = $('<li class="product product-ref-' + reference + '"><div class="product-image"><a href="#0"><img src="' + article.image + '" alt="placeholder"></a></div><div class="product-details"><h3><a href="#0">' + article.name + '</a></h3><span class="price">' + article.price + '€</span><div class="actions"><a href="#0" class="delete-item">Delete</a><div class="quantity"><label for="cd-product-'+ reference +'">Qty</label><span class="select"><select id="cd-product-'+ reference +'" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div></div></div></li>');
       cartList.prepend(productAdded);
-      return true;
     }
-    return false;
+    else {
+      if(product) {
+        var qty = Number(product.find('select').val());
+        console.log(qty);
+        product.find('select').val(qty + 1);
+      }
+    }
+    return true;
   }
   
   function removeProduct(product) {
