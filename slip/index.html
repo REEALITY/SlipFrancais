@@ -8,11 +8,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="shortcut icon" href="images/favicon.ico">
 
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Cantarell:700" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/cart/reset.css">
+  <link rel="stylesheet" href="css/cart/style.css">
+
   <link href="css/please-wait.css" rel="stylesheet">
   <link href="css/loading.css" rel="stylesheet">
   <link href="css/default.css" rel="stylesheet">
- 
+  <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+
+  <!-- cart -->
+
   <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
   <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.3.0/dist/aframe-extras.min.js"></script>
   <script src="https://unpkg.com/aframe-template-component@^3.1.1/dist/aframe-template-component.min.js"></script>
@@ -20,12 +28,14 @@
   <script src="https://unpkg.com/aframe-event-set-component@^3.0.0/dist/aframe-event-set-component.min.js"></script> 
   <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script> 
 
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+
   <script src="components/index.js"></script>   
   <script src="components/a-obj-models.js"></script> 
 </head>
 <body>
 
-<a-scene >
+<a-scene>
 <a-entity camera mouse-cursor wasd-controls look-controls keyboard-shortcuts  position="0 3 8.43"  rotation="0 270 0"></a-entity>
   
 <a-assets>
@@ -133,7 +143,7 @@
 <a-torus static-body scale="1.5 1.5 2" position="6.2 .75 9.6" rotation="90 0 0" visible="true" material="src:#jean2; reflectivity:0.5; roughness:1"></a-torus> -->
 
 <a-obj-model src="#homme1-obj" mtl="#homme1-mtl"   scale=".02 .02 .02" position="5 0 8.54" rotation="0 270 0" ></a-obj-model> 
-<a-image src="#creation" class="add_to_cart" position="0 3.6 3.76" rotation="" scale="2 2 2"></a-image>	    
+<a-image src="#creation" class="cd-add-to-cart" data-ref="AAA" position="0 3.6 3.76" rotation="" scale="2 2 2"></a-image>	    
 
 	<!--	<a-obj-model src="#homme1-obj" mtl="#homme1-mtl"   scale=".02 .02 .02" position="0 0 4" rotation="0 270 0" ></a-obj-model>   -->
 
@@ -168,14 +178,32 @@
 
   <div class="inner" ng-view></div>
 
-  <div class="cart_board overlay">
-    <a href="javascript:void(0)" class="close_button">&times;</a>
-    <div class="overlay-content">
-      <h1 class="title"></h1>
-      <div class="description"></div>
-      <div class="total"></div>
-    </div>
-  </div>
+  <div class="cd-cart-container empty">
+    <a href="#0" class="cd-cart-trigger">
+      Cart
+      <ul class="count"> <!-- cart items count -->
+        <li>0</li>
+        <li>0</li>
+      </ul> <!-- .count -->
+    </a>
+  
+    <div class="cd-cart">
+      <div class="wrapper">
+        <header>
+          <h2>Cart</h2>
+          <span class="undo">Item removed. <a href="#0">Undo</a></span>
+        </header>
+        
+        <div class="body"><ul>
+        <!-- products added to the cart will be inserted here using JavaScript -->
+        </ul></div>
+  
+        <footer>
+          <a href="#0" class="checkout btn"><em>Checkout - €<span>0</span></em></a>
+        </footer>
+      </div>
+    </div> <!-- .cd-cart -->
+  </div> <!-- cd-cart-container -->
   
   <script type="text/javascript" src="components/please-wait.min.js"></script>
   <script type="text/javascript">
@@ -191,6 +219,7 @@
     });
   </script>
   <script src="components/app.js"></script>   
+  <script type="text/javascript" src="components/bootstrap.min.js"></script>
 </body>
 
 

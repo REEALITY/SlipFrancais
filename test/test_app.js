@@ -3,6 +3,7 @@ var css_classes = require('../src/css_classes');
 var sinon = require('sinon');
 var proxyquire = require('proxyquire');
 var CartBoardOverlay = require('../src/cart_board_overlay');
+var assert = require('assert');
 
 describe('test the app', function() {
   var overlay_mock;
@@ -10,6 +11,7 @@ describe('test the app', function() {
 
   beforeEach(function() {
     overlay_mock = sinon.createStubInstance(CartBoardOverlay);
+    overlay_mock.addToCart = sinon.spy();
     app = proxyquire('../src/app', {
       './cart_board_overlay': sinon.spy(function() {
         return overlay_mock;
@@ -25,26 +27,16 @@ describe('test the app', function() {
       };
     });
 
-    it('should display the cart board overlay', function(done) {
-      var add_to_cart_mock = {};
-      overlay_mock.show = sinon.spy(done);
-      add_to_cart_mock.on = sinon.stub().yields();
-
-      deps.jQuery.withArgs(css_classes.add_to_cart).returns(add_to_cart_mock);
-      app(deps); 
-    });
-
-    it('should close the cart board when close button is clicked', function(done) {
+    it('should add the product to the cart', function() {
       var add_to_cart_mock = {};
       add_to_cart_mock.on = sinon.stub().yields();
 
-      overlay_mock.hide = sinon.spy(done);
-      overlay_mock.on_close_clicked = sinon.stub();
-      overlay_mock.on_close_clicked.yields();
-
-      deps.jQuery.withArgs(css_classes.cart_board_close_button).returns(overlay_mock);
       deps.jQuery.withArgs(css_classes.add_to_cart).returns(add_to_cart_mock);
+      deps.jQuery.returns({ data: function() { return 'AAA' } });
       app(deps); 
+
+      assert(overlay_mock.addToCart.calledWith('AAA'));
+      assert.equal(overlay_mock.addToCart.getCall(0).args[1].price, 10.0);
     });
   });
 });

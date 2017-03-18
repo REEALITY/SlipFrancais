@@ -20,11 +20,11 @@ body {
     position: relative;
     top: 25%;
     width: 100%;
-    text-align: center;
+    /* text-align: center; */
     margin-top: 30px;
 }
 
-.overlay a {
+.overlay .close_button {
     padding: 8px;
     text-decoration: none;
     font-size: 36px;
@@ -33,7 +33,7 @@ body {
     transition: 0.3s;
 }
 
-.overlay a:hover, .overlay a:focus {
+.overlay .close_button:hover, .overlay .close_button:focus {
     color: #f1f1f1;
 }
 
@@ -53,3 +53,43 @@ body {
   }
 }
 /* END OVERLAY */
+
+/* CART BOARD */
+
+.cart_board h1 {
+  background-color: white;
+  border-radius: 4px;
+  padding: 20px;
+  font-weight: bold;
+  opacity: 0.6;
+}
+
+.cart_board .cart_list {
+  opacity: 0.6;
+}
+
+.cart_board .title {
+  text-align: center;
+}
+
+.cart_board .details {
+  display: inline-block;
+  width: 60%; 
+}
+
+.cart_board .quantity {
+  width: 120px;
+  float: right;
+  opacity: 0.8;
+  /* margin: 40px auto; */
+}
+
+.cart_board .total {
+  background-color: white;
+  border-radius: 4px;
+  opacity: 0.6;
+  text-align: center;
+}
+
+.cart_board .total .price {
+}
