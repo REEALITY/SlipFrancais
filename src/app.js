@@ -12,6 +12,7 @@ module.exports = function(deps) {
   var cart_board = CartBoard($);
 
   $(css_classes.add_to_cart).on('click', function() {
+    console.log('coucou');
     var reference = $(this).data('ref');
     var article = articles[reference];
 

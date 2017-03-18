@@ -32,7 +32,7 @@ describe('test the app', function() {
       add_to_cart_mock.on = sinon.stub().yields();
 
       deps.jQuery.withArgs(css_classes.add_to_cart).returns(add_to_cart_mock);
-      deps.jQuery.returns({ data: function() { return 'AAA' } });
+      deps.jQuery.returns({ data: function() { return 'AAA'; } });
       app(deps); 
 
       assert(overlay_mock.addToCart.calledWith('AAA'));
