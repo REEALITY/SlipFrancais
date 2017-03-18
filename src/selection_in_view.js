@@ -13,11 +13,11 @@ module.exports.strategyScale = function(element, isSelected)
     element.attr("scale", scale+" "+scale+" "+scale);
 };
 
-module.exports.displaySelected = function($, classId, id, strategy) {
+module.exports.displaySelected = function($, classId, id, strategy, suffix) {
     var backgrounds = $(classId);
     backgrounds.each(function(i) {
         var bkg_id = $(this).attr('id'); 
-        console.log(bkg_id, id+BKG_SUFFIX);
-        strategy($(this), bkg_id === id+BKG_SUFFIX);
+        console.log(bkg_id, id+suffix);
+        strategy($(this), bkg_id === id+suffix);
     });
 };

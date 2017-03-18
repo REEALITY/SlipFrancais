@@ -100,7 +100,7 @@
 </script>
 <script id="size_item_bkg" type="text/html">
   <a-entity 
-     geometry="primitive: circle; radius:0.12"
+     geometry="primitive: circle; radius:0.15"
      scale="1 1 1"
      material="shader: flat; color: #1D3074"
      >
@@ -180,10 +180,10 @@
 <a-torus static-body scale="1.5 1.5 2" position="6.2 .75 9.6" rotation="90 0 0" visible="true" material="src:#jean2; reflectivity:0.5; roughness:1"></a-torus> -->
 
 <a-obj-model src="#homme1-obj" mtl="#homme1-mtl"   scale=".02 .02 .02" position="0 0 4" rotation="0 0 0" ></a-obj-model> 
-<a-collada-model src="#slipbleu"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0"  ></a-collada-model> 
-<a-collada-model src="#slipblanc"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
-<a-collada-model src="#sliprouge"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
-<a-collada-model src="#slipgris"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
+<a-collada-model id="slip_bleu_model" class="slip_model" src="#slipbleu"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" visible="false" ></a-collada-model> 
+<a-collada-model id="slip_blanc_model" class="slip_model" src="#slipblanc"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" visible="false"></a-collada-model> 
+<a-collada-model id="slip_rouge_model" class="slip_model" src="#sliprouge"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" visible="false" ></a-collada-model> 
+<a-collada-model id="slip_gris_model" class="slip_model" src="#slipgris"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" visible="false"></a-collada-model> 
  
 <a-image src="#portail" position="0.06 2.58 19.57" rotation="0 180 0" scale="6.8 5.96 4"></a-image>	 	 
 
@@ -233,7 +233,7 @@
     <a-entity id="size_item_l" class="size_item" template="src: #size_item" data-thumb="#size_l"></a-entity>
     <a-entity id="size_item_xl" class="size_item" template="src: #size_item" data-thumb="#size_xl"></a-entity>
 </a-entity>
-<a-entity id="size_item_bkgs" class="fiche_produit" layout="type: line; margin: 0.3" position="-3.42 2.54 4.05" rotation="0 30 0" visible="false">
+<a-entity id="size_item_bkgs" class="fiche_produit" layout="type: line; margin: 0.3" position="-3.46 2.54 4.08" rotation="0 30 0" visible="false">
     <a-entity id="size_item_s_bkg" class="size_item_bkg" visible="false" template="src: #size_item_bkg"></a-entity>
     <a-entity id="size_item_m_bkg" class="size_item_bkg" visible="false" template="src: #size_item_bkg"></a-entity>
     <a-entity id="size_item_l_bkg" class="size_item_bkg" visible="false" template="src: #size_item_bkg"></a-entity>
