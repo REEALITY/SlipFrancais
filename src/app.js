@@ -13,9 +13,9 @@ module.exports = function(deps) {
     display_cart($); 
   });
   var slip_items = $(css_classes.slip_item);
-  console.log("attaching listeners");
-  slip_items.on('click', function() {
-    console.log('coucou');  
+  slip_items.on('click', function(e) {
+    var id = $(this).attr('id');
+    console.log(id);
   });
   
 };
