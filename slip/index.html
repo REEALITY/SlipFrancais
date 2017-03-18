@@ -20,7 +20,7 @@
   <script src="https://unpkg.com/aframe-layout-component@4.0.1/dist/aframe-layout-component.min.js"></script> 
   <script src="https://unpkg.com/aframe-event-set-component@^3.0.0/dist/aframe-event-set-component.min.js"></script> 
   <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script> 
-
+  
   <script src="components/index.js"></script>   
   <script src="components/a-obj-models.js"></script> 
 </head>
@@ -178,9 +178,12 @@
     <a-entity id="slip_blanc_bkg" class="slip_item_bkg" template="src: #slip_item_bkg"></a-entity>
     <a-entity id="slip_rouge_bkg" class="slip_item_bkg" template="src: #slip_item_bkg"></a-entity>
   </a-entity>
-  <a-entity id="fiche_produit" rotation="0 30 0"
-     geometry="primitive: plane; height: 4; width: 2.66; segmentsHeight:0; segmentsWidth:0 "
-     material="src: images/FicheProduit2.png" position="-3.41 2.45 4" visible="false"/>
+  <a-entity id="fiche_produit" class="fiche_produit" rotation="0 30 0"
+     geometry="primitive: plane; height: 4; width: 2.66"
+     material="src: images/FicheProduit2.png" position="-3.41 2.45 4" visible="false"></a-entity>
+  <a-entity id="add_to_cart_buttn" class="fiche_produit add_to_cart" rotation="0 30 0"
+     geometry="primitive: plane; height: 0.5; width: 2.66"
+     material="color:#000" position="-3.40 1.65 4.01"></a-entity>
   </a-scene>
 
 

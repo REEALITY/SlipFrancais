@@ -5,5 +5,5 @@ module.exports = {
   cart_board_close_button: '.cart_board .close_button',
   slip_item: '.slip_item',
   slip_item_bkg: '.slip_item_bkg',
-  fiche_produit: '#fiche_produit'
+  fiche_produit: '.fiche_produit'
 };

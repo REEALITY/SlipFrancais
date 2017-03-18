@@ -19,8 +19,10 @@ function displaySelected($, id) {
 function showFicheProduit($)
 {
     var fiche_produit = $(css_classes.fiche_produit);
-    console.log(fiche_produit.attr("id"));
-    fiche_produit.attr("visible", "true");
+    fiche_produit.each(function() {
+        console.log($(this).attr("id"));
+        $(this).attr("visible", "true");
+    });
 }
 
 module.exports.attachClickListener = function($, selected_slip) {
