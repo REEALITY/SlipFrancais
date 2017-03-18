@@ -1,9 +1,11 @@
 
 var articles = require('./articles');
 var Cart = require('./cart');
+var slip_manager = require('./slip_manager');
 var css_classes = require('./css_classes');
 var CartBoardOverlay = require('./cart_board_overlay');
 
+var selected_slip = {slip : ""};
 module.exports = function(deps) {
   var $ = deps.jQuery;
   var cart = new Cart(); 
@@ -17,12 +19,7 @@ module.exports = function(deps) {
   cart_board_overlay.on_close_clicked(function() {
     cart_board_overlay.hide();
   });
-  var slip_items = $(css_classes.slip_item);
-  slip_items.on('click', function(e) {
-    var id = $(this).attr('id');
-    console.log(id);
-  });
-  
+  slip_manager.attachClickListener($);
 };
 
 function display_cart(cart_board_overlay) {

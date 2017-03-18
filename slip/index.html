@@ -54,11 +54,15 @@
 <script id="slip_item" type="text/html">
   <a-image 
      src= "${thumb}"
-     geometry="height: 2; width: 2; segmentsHeight:0; segmentsWidth:0 "
+     geometry="height: 1; width: 1; segmentsHeight:0; segmentsWidth:0 "
      material="shader: flat; transparent: true"
-     event-set__1="_event: mouseenter; scale: 1.25 1.25 1.25"
-     event-set__2="_event: mouseleave; scale: 1 1 1">
   </a-image>
+</script>
+<script id="slip_item_bkg" type="text/html">
+  <a-entity 
+     geometry="primitive: plane; height: 1; width: 1; segmentsHeight:0; segmentsWidth:0 "
+     material="shader: flat; transparent: true; color: #FFF"
+  </a-entity>
 </script>
 
 
@@ -157,7 +161,12 @@
     <a-entity id="slip_rouge" class="slip_item" template="src: #slip_item" data-thumb="#slip-rouge"></a-entity>
   </a-entity>
 
-  
+<a-entity id="links" layout="type: box; columns: 2; margin: 2.5" position="8.45 2.20 7.45" rotation="0 -90 0">
+    <a-entity id="slip_bleu_bkg" class="slip_item_bkg" template="src: #slip_item_bkg"></a-entity>
+    <a-entity id="slip_gris_bkg" class="slip_item_bkg" template="src: #slip_item_bkg"></a-entity>
+    <a-entity id="slip_blanc_bkg" class="slip_item_bkg" template="src: #slip_item_bkg"></a-entity>
+    <a-entity id="slip_rouge_bkg" class="slip_item_bkg" template="src: #slip_item_bkg"></a-entity>
+  </a-entity>
   </a-scene>
 
   <div class="inner" ng-view></div>
