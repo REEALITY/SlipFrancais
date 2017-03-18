@@ -27,7 +27,6 @@ module.exports = function(deps) {
 
   slip_manager.attachClickListener($, selected_slip);
   fiche_produit.attachClickListener($, selected_options);
-
   fiche_produit.selectSize($, selected_options, $('#size_item_m'));
 };
 

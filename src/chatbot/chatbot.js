@@ -10,7 +10,11 @@ function extractEntity(query, entitySet) {
     return chosenOption;
 }
 
-module.exports = function() { 
+module.exports = function() {
+    this.config = {
+        chosenColor : dictionary.WHITE,
+        chosenSize : dictionary.MOYEN
+    } 
     this.state = dictionary.ASK_COLOR;
     this.chat = function(query) {
         query = query.toLowerCase();

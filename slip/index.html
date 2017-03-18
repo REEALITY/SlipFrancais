@@ -261,7 +261,10 @@
     <a-entity id="size_item_l_bkg" class="size_item_bkg" visible="false" template="src: #size_item_bkg"></a-entity>
     <a-entity id="size_item_xl_bkg" class="size_item_bkg" visible="false" template="src: #size_item_bkg"></a-entity>
 </a-entity>
-
+<a-collada-model id="slip_bleu_model" class="slip_model" src="#slipbleu"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0"></a-collada-model> 
+ <a-collada-model id="slip_blanc_model" class="slip_model" src="#slipblanc"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
+ <a-collada-model id="slip_rouge_model" class="slip_model" src="#sliprouge"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
+ <a-collada-model id="slip_gris_model" class="slip_model" src="#slipgris"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
  
   <a-entity id="fiche_produit" class="fiche_produit" rotation="0 30 0"
      geometry="primitive: plane; height: 4; width: 2.66"
@@ -270,7 +273,6 @@
      geometry="primitive: plane; height: 0.5; width: 2.66"
      material="src: url(images/fiche_produit/ajout_panier.png)" position="-3.40 1.65 4.01" visible="false" ></a-entity>
   </a-scene>
-
   <div class="inner" ng-view></div>
   <div class="cd-cart-container empty">
     <a href="#0" class="cd-cart-trigger">
