@@ -7,7 +7,7 @@
  "SMALL":"petit",
  "MOYEN":"moyen",
  "CORPULENT":"corpulent",
- "COLORS":["fonce", "mat", "clair"],
+ "COLORS":["foncé", "mat", "clair"],
  "CORPULENCES":["petit", "moyen", "corpulent"],
  "GREETINGS":"Bonjour, je m'appelle Camille, je vais vous accompagner lors de votre achat. N'hésitez pas à me demander de l'aide",
  "GREETINGS2":"Bonjour et bienvenue dans l'expérience virtuelle du slip français.",
