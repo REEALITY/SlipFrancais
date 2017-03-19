@@ -19,7 +19,7 @@ module.exports = function(displayHandler, config) {
         {
             var chosenColor = extractEntity(query, dictionary.COLORS);
             if (chosenColor === "")
-                return dictionary.DIDNT_UNDERSTAND;
+                return "";//dictionary.DIDNT_UNDERSTAND;
             else
             {
                 config.skin = chosenColor;
@@ -32,7 +32,7 @@ module.exports = function(displayHandler, config) {
         {
             var chosenCorpulence = extractEntity(query, dictionary.CORPULENCES);
             if (chosenCorpulence === "")
-                return dictionary.DIDNT_UNDERSTAND;
+                return "";
             else  
             {
                 if (chosenCorpulence == dictionary.CORPULENT)
