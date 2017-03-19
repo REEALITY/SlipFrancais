@@ -16,8 +16,7 @@
     "bluebird": "^3.5.0",
     "express": "^4.15.2",
     "jquery": "^3.2.0",
-    "speak-tts": "^1.0.2",
-    "speakable": "^0.3.0"
+    "speak-tts": "^1.0.2"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
@@ -25,6 +24,7 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-patch": "^0.1.7",
     "mocha": "^3.2.0",
     "sinon": "^2.0.0"
   }
