@@ -10,9 +10,10 @@
  "COLORS":["fonce", "mat", "clair"],
  "CORPULENCES":["petit", "moyen", "corpulent"],
  "GREETINGS":"Bonjour, je m'appelle Camille, je vais vous accompagner lors de votre achat \n J'aimerais en apprendre plus sur vous.",
- "COLOR_QUESTION":"Pourriez vous me préciser votre type de peau, plutôt clair, mat ou foncé?",
+ "COLOR_QUESTION":"pourriez vous me préciser votre type de peau, plutôt clair, mat ou foncé?",
  "COMPLEXION":"Je suis désolée je n'ai pas compris..",
  "DIDNT_UNDERSTAND":"Je suis désolée je n'ai pas compris..",
  "UNDERSTOOD":"J'ai compris que vous étiez ",
  "CORPULENCE_QUESTION":"Etes vous plutôt petit, moyen ou corpulent?",
- "FINISH":"Très bien, nous avons fini de préciser votre physionomie."}
+ "FINISH":"Très bien, nous avons fini de préciser votre physionomie."
+ }

@@ -10,11 +10,7 @@ function extractEntity(query, entitySet) {
     return chosenOption;
 }
 
-module.exports = function() {
-    this.config = {
-        chosenColor : dictionary.WHITE,
-        chosenSize : dictionary.MOYEN
-    }; 
+module.exports = function(displayHandler, config) {
     this.state = dictionary.ASK_COLOR;
     this.chat = function(query) {
         query = query.toLowerCase();
@@ -26,11 +22,10 @@ module.exports = function() {
                 return dictionary.DIDNT_UNDERSTAND;
             else
             {
-                this.config.chosenColor = chosenColor;
+                config.chosenColor = chosenColor;
                 this.state = dictionary.ASK_SIZE; 
                 reply = dictionary.UNDERSTOOD + chosenColor+ ".";
                 reply += " "+dictionary.CORPULENCE_QUESTION;
-                return reply;
             }
         }
         else if (this.state == dictionary.ASK_SIZE)
@@ -38,13 +33,15 @@ module.exports = function() {
             var chosenCorpulence = extractEntity(query, dictionary.CORPULENCES);
             if (chosenCorpulence === "")
                 return dictionary.DIDNT_UNDERSTAND;
-            else
+            else  
             {
+                config.chosenSize = chosenCorpulence;
                 this.state = dictionary.FINISHED; 
                 reply = dictionary.UNDERSTOOD + chosenCorpulence+ ".";
                 reply += " "+dictionary.FINISH;
-                return reply;
             }
         }
+        displayHandler.onPersonalConfigChanged();
+        return reply;
     };
 };

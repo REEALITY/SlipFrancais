@@ -9,6 +9,8 @@ var slip_selection_to_reference = require('./slip_selection_to_reference');
 var Speech = require('./speech');
 var Chatbot = require('./chatbot/chatbot');
 var dictionary = require('./chatbot/dictionary');
+var DisplayHandler = require('./display_handler');
+var dictionary = require('./chatbot/dictionary');
 
 function send_sentences_to_chatbot(chatbot, reply_callback) {
   return function(sentences) {
@@ -33,13 +35,19 @@ module.exports = function(deps) {
   var cart_board = new CartBoard($);
   var speech = new Speech(deps);
   var chatbot = new Chatbot();
+  
+  var personalConfig = {
+                        slip: '',
+                        size: '',
+                        chosenColor : dictionary.WHITE,
+                        chosenSize : dictionary.MOYEN
+                       };
 
-  var selected_slip = {slip : ''};
-  var selected_options = {size : ''};
+  var displayHandler = new DisplayHandler($, personalConfig);
 
   $(css_classes.add_to_cart).on('click', function() {
-    var reference = slip_selection_to_reference(selected_slip.slip, 
-      selected_options.size);
+    var reference = slip_selection_to_reference(personalConfig.slip, 
+      personalConfig.size);
     var article = articles[reference];
     cart_board.addToCart(reference, article);
   });
@@ -48,10 +56,9 @@ module.exports = function(deps) {
     redirect_to_login_page(deps.window);
   });
 
-  slip_manager.attachClickListener($, selected_slip);
-  fiche_produit.attachClickListener($, selected_options);
-  fiche_produit.selectSize($, selected_options, $('#size_item_m'));
-
+  slip_manager.attachClickListener($, displayHandler, personalConfig);
+  fiche_produit.attachClickListener($, displayHandler, personalConfig);
+  
   speech.init()
   .then(function() {
     speech.talk(dictionary.COLOR_QUESTION);
