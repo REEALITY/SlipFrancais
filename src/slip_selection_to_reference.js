@@ -8,8 +8,8 @@ function selection_to_reference(slip_id, size) {
   if(slip_id == 'slip_gris') reference = 'grey_';
   if(slip_id == 'slip_blanc') reference = 'white_';
 
-  if(size == 'size_item_s') reference += 's';
-  if(size == 'size_item_m') reference += 'm';
-  if(size == 'size_item_l') reference += 'l';
+  if(size == 'S') reference += 's';
+  if(size == 'M') reference += 'm';
+  if(size == 'L') reference += 'l';
   return reference;
 }

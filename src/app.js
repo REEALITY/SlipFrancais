@@ -6,17 +6,48 @@ var fiche_produit = require('./fiche_produit');
 var css_classes = require('./css_classes');
 var CartBoard = require('./cart_board_overlay');
 var slip_selection_to_reference = require('./slip_selection_to_reference');
+var Speech = require('./speech');
+var Chatbot = require('./chatbot/chatbot');
+var dictionary = require('./chatbot/dictionary');
+var DisplayHandler = require('./display_handler');
+var dictionary = require('./chatbot/dictionary');
+
+function send_sentences_to_chatbot(chatbot, reply_callback) {
+  return function(sentences) {
+    for(var i=0; i<sentences.length; ++i) {
+      console.log('understood %s', sentences[i]);
+      var reply = chatbot.chat(sentences[i]);
+      if(reply && reply_callback) {
+        console.log('speak "%s"', reply);
+        reply_callback(reply);
+        return;
+      }
+      else {
+        console.log('not matching');
+      }
+    }
+  };
+}
 
 module.exports = function(deps) {
   var $ = deps.jQuery;
   var cart = new Cart(); 
   var cart_board = new CartBoard($);
-  var selected_slip = {slip : ''};
-  var selected_options = {size : ''};
+  var speech = new Speech(deps);
+  var chatbot = new Chatbot();
+  
+  var personalConfig = {
+                        slip: 'slip_bleu',
+                        size: 'M',
+                        chosenColor : dictionary.WHITE,
+                        chosenSize : dictionary.MOYEN
+                       };
+
+  var displayHandler = new DisplayHandler($, personalConfig);
 
   $(css_classes.add_to_cart).on('click', function() {
-    var reference = slip_selection_to_reference(selected_slip.slip, 
-      selected_options.size);
+    var reference = slip_selection_to_reference(personalConfig.slip, 
+      personalConfig.size);
     var article = articles[reference];
     cart_board.addToCart(reference, article);
   });
@@ -25,10 +56,20 @@ module.exports = function(deps) {
     redirect_to_login_page(deps.window);
   });
 
-  slip_manager.attachClickListener($, selected_slip);
-  fiche_produit.attachClickListener($, selected_options);
+  slip_manager.attachClickListener($, displayHandler, personalConfig);
+  fiche_produit.attachClickListener($, displayHandler, personalConfig);
 
-  fiche_produit.selectSize($, selected_options, $('#size_item_m'));
+  function chatbot_talk(message) {
+    speech.talk(message);
+  }
+
+  speech.init()
+  .then(function() {
+    setTimeout(function() {
+      speech.talk(dictionary.COLOR_QUESTION);
+    }, 2000);
+  });
+  speech.listen(send_sentences_to_chatbot(chatbot, chatbot_talk));
 };
 
 function redirect_to_login_page(window) {

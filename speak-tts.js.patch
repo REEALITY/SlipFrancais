@@ -1,0 +1,19 @@
+--- node_modules/speak-tts/lib/speak-tts.js	2017-01-25 19:23:57.000000000 +0100
++++ speak-tts.js	2017-03-19 04:17:34.836922883 +0100
+@@ -203,7 +203,9 @@
+     var sentences = _splitSentences(msg);
+     sentences.forEach(function (sentence, index) {
+       var isLast = index === sentences.length - 1;
++      window.utterances = [];
+       var utterance = new window.SpeechSynthesisUtterance();
++      utterances.push( utterance );
+       var voice = window.speechSynthesis.getVoices().find(function (voice) {
+         return voice.lang.replace('_', '-') === lang; // handle android specificites
+       });
+@@ -240,4 +242,4 @@
+   };
+ }(window);
+ 
+-exports.default = SpeakTTS;
+\ Pas de fin de ligne à la fin du fichier
++exports.default = SpeakTTS;
