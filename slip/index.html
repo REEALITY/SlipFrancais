@@ -96,9 +96,9 @@
 
 <a-asset-item id="cadre2-obj" src="models\cadre2\HaiVanPassFrame.obj"></a-asset-item>
 <a-asset-item id="cadre2-mtl" src="models\cadre2\HaiVanPassFrame.mtl"></a-asset-item>
-
+<a-asset-item id="plant-obj" src="models/plant/fern2.obj"></a-asset-item> <a-asset-item id="plant-mtl" src="models/plant/fern2.mtl"></a-asset-item>  
+<a-asset-item id="pot-obj" src="models/plant/Low-Poly Plant_.obj"></a-asset-item> <a-asset-item id="pot-mtl" src="models/plant/Low-Poly Plant_.mtl"></a-asset-item>  
 <a-asset-item id="speaker" src="models\speaker\Speakers2Finished.dae"></a-asset-item>
-
 
 <script id="slip_item" type="text/html">
   <a-image 
@@ -253,7 +253,11 @@
 
 	<!-- déco fond -->
 
+<a-obj-model src="#plant-obj" mtl="#plant-mtl" scale=".1 .1 .1" position="6.1 .25 16.37" rotation="0 0 0"  ></a-obj-model><a-image src="#shadow1" position="5.99 0.01 16.37" rotation="90 0 0" scale="3 3 2" opacity=".4"></a-image>	
+<a-obj-model src="#plant-obj" mtl="#plant-mtl" scale=".1 .1 .1" position="-6.1 .25 16.37" rotation="0 -41 0"  ></a-obj-model><a-image src="#shadow1" position="-6.1 .23 16.37" rotation="90 0 0" scale="3 3 2" opacity=".4"></a-image>	
 
+<a-obj-model src="#pot-obj" mtl="#pot-mtl" scale="3 3 3" position="6 -.05 16.23" rotation="0 0 0"  ></a-obj-model>
+<a-obj-model src="#pot-obj" mtl="#pot-mtl" scale="3 3 3" position="-6 -.02 16.37" rotation="0 -41 0"  ></a-obj-model>
 
 <a-image src="#logo" position="2.49 1.11 8.83" rotation="0 270 0" scale="2.22 2.18 4"></a-image>	
 <a-box scale="1 2.3 3.84" position=" 3 1.05 8.81" material="src: url(images/wood_texture.jpg) repeat: 4 2" ></a-box>

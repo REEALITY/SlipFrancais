@@ -52,7 +52,7 @@ module.exports = function(deps) {
     cart_board.addToCart(reference, article);
   });
 
-  cart_board.onCheckoutClick(function() {
+  cart_board.onCheckoutClick(function() { 
     redirect_to_login_page(deps.window);
   });
 
