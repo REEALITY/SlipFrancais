@@ -1,4 +1,4 @@
-
+ 
 var app = require('./app');
 global.jQuery = require('jquery');
 
