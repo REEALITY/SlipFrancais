@@ -110,6 +110,7 @@
 <script id="slip_item_bkg" type="text/html">
   <a-entity 
      geometry="primitive: plane; height: 0.74; width: 0.99"
+     scale="1.2 1.2 1.2"
      material="shader: flat; transparent: true; color: #1D3074">
   </a-entity>
 </script>
@@ -201,21 +202,21 @@
 <a-entity id="mannequin1" position="0 0 4">
 <a-animation attribute="rotation" from="0 -30 0" to="0 330 0" dur="15000"
                      easing="linear" repeat="indefinite"></a-animation>
-<a-collada-model src="#homme1"  scale=".02 .02 .02" position="0 0 0" rotation="90 0 0" ></a-collada-model> <a-image src="#shadow1" position="0 0.02 0" rotation="90 0 0" scale="2 2 2" opacity=".4"></a-image>	
-<a-collada-model id="slip_bleu_model" class="slip_model" src="#slipbleu"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0"  ></a-collada-model> 
- <a-collada-model id="slip_blanc_model" class="slip_model" src="#slipblanc"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0" ></a-collada-model> 
- <a-collada-model id="slip_rouge_model" class="slip_model" src="#sliprouge"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0" ></a-collada-model> 
- <a-collada-model id="slip_gris_model" class="slip_model" src="#slipgris"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0" ></a-collada-model> 
+<a-collada-model src="#homme1" class="model size M" scale=".02 .02 .02" position="0 0 0" rotation="90 0 0" ></a-collada-model> <a-image src="#shadow1" position="0 0.02 0" rotation="90 0 0" scale="2 2 2" opacity=".4"></a-image>	
+<a-collada-model id="slip_bleu_model" class="model slip slip_bleu size M" src="#slipbleu"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0"  ></a-collada-model> 
+ <a-collada-model id="slip_blanc_model" class="model slip slip_blanc size M" src="#slipblanc"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0" ></a-collada-model> 
+ <a-collada-model id="slip_rouge_model" class="model slip slip_rouge size M" src="#sliprouge"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0" ></a-collada-model> 
+ <a-collada-model id="slip_gris_model" class="model slip slip_gris size M " src="#slipgris"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0" ></a-collada-model> 
 </a-entity>
 
 <a-entity id="mannequin2" position="0 0 4">
 <a-animation attribute="rotation" from="0 -30 0" to="0 330 0" dur="15000"
                      easing="linear" repeat="indefinite"></a-animation>
-<a-collada-model src="#black"  scale=".02 .02 .02" position="0 0 0" rotation="90 0 0" ></a-collada-model> <a-image src="#shadow1" position="0 0.02 0" rotation="90 0 0" scale="2 2 2" opacity=".4"></a-image>	
-<a-collada-model id="slip_bleu_black_model" class="slip_model" src="#slipbleu_black"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0"  ></a-collada-model> 
- <a-collada-model id="slip_blanc_black_model" class="slip_model" src="#slipblanc_black"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0" ></a-collada-model> 
- <a-collada-model id="slip_rouge_black_model" class="slip_model" src="#sliprouge_black"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0" ></a-collada-model> 
- <a-collada-model id="slip_gris_black_model" class="slip_model" src="#slipgris_black"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0" ></a-collada-model> 
+<a-collada-model src="#black" visible="false" class="model size L" scale=".02 .02 .02" position="0 0 0" rotation="90 0 0" ></a-collada-model> <a-image src="#shadow1" position="0 0.02 0" rotation="90 0 0" scale="2 2 2" opacity=".4"></a-image>	
+ <a-collada-model id="slip_bleu_black_model" visible="false" class="model slip slip_bleu size L" src="#slipbleu_black"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0"  ></a-collada-model> 
+ <a-collada-model id="slip_blanc_black_model" visible="false" class="model slip slip_blanc size L" src="#slipblanc_black"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0" ></a-collada-model> 
+ <a-collada-model id="slip_rouge_black_model" visible="false" class="model slip slip_rouge size L" src="#sliprouge_black"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0" ></a-collada-model> 
+ <a-collada-model id="slip_gris_black_model" visible="false" class="model slip slip_gris size L" src="#slipgris_black"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0" ></a-collada-model> 
 </a-entity>
 
 <a-image src="#portail" position="0.06 2.58 19.57" rotation="0 180 0" scale="6.8 5.96 4"></a-image>	 	  
@@ -261,39 +262,35 @@
 
 
 <a-entity id="slip_items" layout="type: box; columns: 2; margin: 1.1" position="3 2 4" rotation="0 -30 0">
-    <a-entity id="slip_bleu" class="slip_item" template="src: #slip_item" data-thumb="#slip-bleu" ></a-entity>
-    <a-entity id="slip_gris" class="slip_item" template="src: #slip_item" data-thumb="#slip-gris"></a-entity>
-    <a-entity id="slip_blanc" class="slip_item" template="src: #slip_item" data-thumb="#slip-blanc"></a-entity>
-    <a-entity id="slip_rouge" class="slip_item" template="src: #slip_item" data-thumb="#slip-rouge"></a-entity> 
+    <a-entity id="slip_bleu" class="slip_item" value="slip_bleu" template="src: #slip_item" data-thumb="#slip-bleu" ></a-entity>
+    <a-entity id="slip_gris" class="slip_item" value="slip_gris" template="src: #slip_item" data-thumb="#slip-gris"></a-entity>
+    <a-entity id="slip_blanc" class="slip_item" value="slip_blanc" template="src: #slip_item" data-thumb="#slip-blanc"></a-entity>
+    <a-entity id="slip_rouge" class="slip_item" value="slip_rouge" template="src: #slip_item" data-thumb="#slip-rouge"></a-entity> 
   </a-entity>
 
 <a-entity id="slip_item_bkgs" layout="type: box; columns: 2; margin: 1.1" position="3 2 3.99" rotation="0 -30 0">
-    <a-entity id="slip_bleu_bkg" class="slip_item_bkg" template="src: #slip_item_bkg"></a-entity>
-    <a-entity id="slip_gris_bkg" class="slip_item_bkg" template="src: #slip_item_bkg"></a-entity>
-    <a-entity id="slip_blanc_bkg" class="slip_item_bkg" template="src: #slip_item_bkg"></a-entity>
-    <a-entity id="slip_rouge_bkg" class="slip_item_bkg" template="src: #slip_item_bkg"></a-entity>
+    <a-entity id="slip_bleu_bkg"  class="slip slip_bleu" template="src: #slip_item_bkg" visible="false"></a-entity>
+    <a-entity id="slip_gris_bkg"  class="slip slip_gris" template="src: #slip_item_bkg" visible="false"></a-entity>
+    <a-entity id="slip_blanc_bkg"  class="slip slip_blanc" template="src: #slip_item_bkg" visible="false"></a-entity>
+    <a-entity id="slip_rouge_bkg"  class="slip slip_rouge" template="src: #slip_item_bkg" visible="false"></a-entity>
   </a-entity>
 <a-entity id="size_items" class="fiche_produit" layout="type: line; margin: 0.3" position="-3.45 2.54 4.10" rotation="0 30 0" visible="false">
-    <a-entity id="size_item_s" class="size_item" template="src: #size_item" data-thumb="#size_s"></a-entity>
-    <a-entity id="size_item_m" class="size_item" template="src: #size_item" data-thumb="#size_m"></a-entity>
-    <a-entity id="size_item_l" class="size_item" template="src: #size_item" data-thumb="#size_l"></a-entity>
-    <a-entity id="size_item_xl" class="size_item" template="src: #size_item" data-thumb="#size_xl"></a-entity>
+    <a-entity id="size_item_s" class="size_item" value="S" template="src: #size_item" data-thumb="#size_s"></a-entity>
+    <a-entity id="size_item_m" class="size_item" value="M" template="src: #size_item" data-thumb="#size_m"></a-entity>
+    <a-entity id="size_item_l" class="size_item" value="L" template="src: #size_item" data-thumb="#size_l"></a-entity>
+    <a-entity id="size_item_xl" class="size_item" value="XL" template="src: #size_item" data-thumb="#size_xl"></a-entity>
 </a-entity>
 <a-entity id="size_item_bkgs" class="fiche_produit" layout="type: line; margin: 0.3" position="-3.46 2.54 4.08" rotation="0 30 0" visible="false">
-    <a-entity id="size_item_s_bkg" class="size_item_bkg" visible="false" template="src: #size_item_bkg"></a-entity>
-    <a-entity id="size_item_m_bkg" class="size_item_bkg" visible="false" template="src: #size_item_bkg"></a-entity>
-    <a-entity id="size_item_l_bkg" class="size_item_bkg" visible="false" template="src: #size_item_bkg"></a-entity>
-    <a-entity id="size_item_xl_bkg" class="size_item_bkg" visible="false" template="src: #size_item_bkg"></a-entity>
+    <a-entity id="size_item_s_bkg" class="size S" visible="false" template="src: #size_item_bkg"></a-entity>
+    <a-entity id="size_item_m_bkg" class="size M" visible="false" template="src: #size_item_bkg"></a-entity>
+    <a-entity id="size_item_l_bkg" class="size L" visible="false" template="src: #size_item_bkg"></a-entity>
+    <a-entity id="size_item_xl_bkg" class="size XL" visible="false" template="src: #size_item_bkg"></a-entity>
 </a-entity>
-<a-collada-model id="slip_bleu_model" class="slip_model" src="#slipbleu"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0"></a-collada-model> 
- <a-collada-model id="slip_blanc_model" class="slip_model" src="#slipblanc"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
- <a-collada-model id="slip_rouge_model" class="slip_model" src="#sliprouge"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
- <a-collada-model id="slip_gris_model" class="slip_model" src="#slipgris"  scale=".021 .021 .021" position="0 1.81 3.99" rotation="0 0 0" ></a-collada-model> 
- 
+
   <a-entity id="fiche_produit" class="fiche_produit" rotation="0 30 0"
      geometry="primitive: plane; height: 4; width: 2.66"
      material="src: images/fiche_produit/FicheProduit.png" position="-3.41 2.45 4" visible="false"></a-entity>
-  <a-entity id="add_to_cart_buttn" class="fiche_produit cd-add-to-cart" rotation="0 30 0"
+  <a-entity id="cd-add-to-cart" class="fiche_produit cd-add-to-cart" rotation="0 30 0"
      geometry="primitive: plane; height: 0.5; width: 2.66"
      material="src: url(images/fiche_produit/ajout_panier.png)" position="-3.40 1.65 4.01" visible="false" ></a-entity>
   </a-scene>
@@ -341,7 +338,3 @@
   <script src="components/app.js"></script>   
   <script type="text/javascript" src="components/bootstrap.min.js"></script>
 </body>
-
-
-
-
