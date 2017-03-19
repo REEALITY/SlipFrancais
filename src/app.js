@@ -75,17 +75,22 @@ module.exports = function(deps) {
   $(css_classes.chanson).on('click', function() {
 	  var entity = global.document.querySelector('.chanson[sound]');
 	  if(soundPlayed) {
-		entity.components.sound.pauseSound();
-		soundPlayed = false;
+      entity.components.sound.pauseSound();
+      soundPlayed = false;
 	  }
 	  else {
-		entity.components.sound.playSound();
-		soundPlayed = true;
+      entity.components.sound.playSound();
+      soundPlayed = true;
 	  }
   });
   saleswoman.on_clicked(function() {
     speech.talk(dictionary.COLOR_QUESTION);
-    speech.listen(send_sentences_to_chatbot(chatbot, chatbot_talk));
+    setTimeout(function() {
+      speech.talk(chatbot.chat("FONCE"));
+    }, 7000);
+    setTimeout(function() {
+      speech.talk(chatbot.chat("CORPULENT"));
+    }, 15000);
   });
 
   displayHandler.onPersonalConfigChanged();

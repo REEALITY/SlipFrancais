@@ -10,6 +10,10 @@ function extractEntity(query, entitySet) {
     return chosenOption;
 }
 
+var SIZE_S = "S";
+var SIZE_M = "M";
+var SIZE_L = "L";
+
 module.exports = function(displayHandler, config) {
     this.state = dictionary.ASK_COLOR;
     this.chat = function(query) {
@@ -18,15 +22,11 @@ module.exports = function(displayHandler, config) {
         if (this.state === dictionary.ASK_COLOR)
         {
             var chosenColor = extractEntity(query, dictionary.COLORS);
-            if (chosenColor === "")
-                return "";//dictionary.DIDNT_UNDERSTAND;
-            else
-            {
-                config.skin = chosenColor;
-                this.state = dictionary.ASK_SIZE; 
-                reply = dictionary.UNDERSTOOD + chosenColor+ ".";
-                reply += " "+dictionary.CORPULENCE_QUESTION;
-            }
+            config.skin = dictionary.BLACK;
+            config.size = SIZE_L;
+            this.state = dictionary.ASK_SIZE; 
+            reply = dictionary.UNDERSTOOD + chosenColor+ ".";
+            reply += " "+dictionary.CORPULENCE_QUESTION;
         }
         else if (this.state == dictionary.ASK_SIZE)
         {
@@ -35,12 +35,7 @@ module.exports = function(displayHandler, config) {
                 return "";
             else  
             {
-                if (chosenCorpulence == dictionary.CORPULENT)
-                    config.size = "L";    
-                if (chosenCorpulence == dictionary.MOYEN)
-                    config.size = "M";    
-                if (chosenCorpulence == dictionary.SMALL)
-                    config.size = "S";    
+                config.size = SIZE_L;    
                 this.state = dictionary.FINISHED; 
                 reply = dictionary.UNDERSTOOD + chosenCorpulence+ ".";
                 reply += " "+dictionary.FINISH;
