@@ -11,6 +11,7 @@ var Chatbot = require('./chatbot/chatbot');
 var dictionary = require('./chatbot/dictionary');
 var DisplayHandler = require('./display_handler');
 var dictionary = require('./chatbot/dictionary');
+var SalesWoman = require('./saleswoman');
 
 function send_sentences_to_chatbot(chatbot, reply_callback) {
   return function(sentences) {
@@ -34,7 +35,7 @@ module.exports = function(deps) {
   var cart = new Cart(); 
   var cart_board = new CartBoard($);
   var speech = new Speech(deps);
-
+  var saleswoman = new SalesWoman($);
   var personalConfig = {
                         slip: 'slip_bleu',
                         size: 'M',
@@ -66,10 +67,15 @@ module.exports = function(deps) {
   speech.init()
   .then(function() {
     setTimeout(function() {
-      speech.talk(dictionary.COLOR_QUESTION);
+      speech.talk(dictionary.GREETINGS2);
     }, 2000);
   });
-  speech.listen(send_sentences_to_chatbot(chatbot, chatbot_talk));
+
+  saleswoman.on_clicked(function() {
+    speech.talk(dictionary.COLOR_QUESTION);
+    speech.listen(send_sentences_to_chatbot(chatbot, chatbot_talk));
+  });
+
 };
 
 function redirect_to_login_page(window) {

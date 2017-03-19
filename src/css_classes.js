@@ -7,5 +7,6 @@ module.exports = {
   fiche_produit: '.fiche_produit',
   size_item:'.size_item',
   size_item_selected: '.size',
-  slip_model: '.slip_model'
+  slip_model: '.slip_model',
+  saleswoman: '.saleswoman'
 };
