@@ -21,11 +21,10 @@ module.exports = function(displayHandler, config) {
         var reply = "";
         if (this.state === dictionary.ASK_COLOR)
         {
-            var chosenColor = extractEntity(query, dictionary.COLORS);
             config.skin = dictionary.BLACK;
             config.size = SIZE_L;
             this.state = dictionary.ASK_SIZE; 
-            reply = dictionary.UNDERSTOOD + chosenColor+ ".";
+            reply = dictionary.UNDERSTOOD + dictionary.BLACK+ ".";
             reply += " "+dictionary.CORPULENCE_QUESTION;
         }
         else if (this.state == dictionary.ASK_SIZE)
