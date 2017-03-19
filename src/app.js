@@ -39,7 +39,8 @@ module.exports = function(deps) {
   var personalConfig = {
                         slip: 'slip_bleu',
                         size: 'M',
-                        skin : dictionary.WHITE
+                        skin : dictionary.WHITE,
+                        dabber : "nodab"
                        };
 
   var displayHandler = new DisplayHandler($, personalConfig);
@@ -75,6 +76,7 @@ module.exports = function(deps) {
     speech.listen(send_sentences_to_chatbot(chatbot, chatbot_talk));
   });
 
+  displayHandler.onPersonalConfigChanged();
 };
 
 function redirect_to_login_page(window) {

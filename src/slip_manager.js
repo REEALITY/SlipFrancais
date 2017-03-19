@@ -10,25 +10,31 @@ function arraysIdentical(a, b) {
         if (a[i] !== b[i]) return false;
     }
     return true;
-};
+}
 
-function checkEasterEgg(value) {
+function checkEasterEgg(displayHandler, value, config) {
     easter_egg_queue.push(value);
-    easter_egg_queue.shift();
-    if (arraysIdentical(easter_egg, easter_egg_queue));
+    if (easter_egg_queue.length > 3)
+        easter_egg_queue.shift();
+    console.log(JSON.stringify(easter_egg_queue));
+    if (arraysIdentical(easter_egg, easter_egg_queue))
+    {
         console.log("easter egg activated");
-    return arraysIdentical(easter_egg, easter_egg_queue);
+        config.dabber = "dab";
+        setTimeout(function() {
+            config.dabber = "nodab";
+            displayHandler.onPersonalConfigChanged();
+        }, 1000);
+    }
 }
 
 module.exports.attachClickListener = function($, displayHandler, config) {
     var slip_items = $(css_classes.slip_item);
     slip_items.on('click', function(e) {
         var value = $(this).attr('value');
-        console.log(value);
         config.slip = value;
         displayHandler.displaySelection(css_classes.slip_item_selected, value);
+        checkEasterEgg(displayHandler, value, config);    
         displayHandler.onPersonalConfigChanged();
-        if (checkEasterEgg(value))
-            displayHandler.onEasterEgg();
     });
 };
