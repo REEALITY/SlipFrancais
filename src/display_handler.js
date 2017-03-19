@@ -24,14 +24,14 @@ module.exports = function($, config)
         {
           if (config.hasOwnProperty(property))
           { 
-            console.log(element.attr('id'), property, config[property], element.hasClass(property), element.hasClass(config[property])); 
+            //console.log(element.attr('id'), property, config[property], element.hasClass(property), element.hasClass(config[property])); 
             if (element.hasClass(property) && config[property] && config[property] !== "")
             {
                visible = visible && element.hasClass(config[property]);
             }
           }
         }
-        console.log(element.attr('id'), visible);
+        //console.log(element.attr('id'), visible);
         element.attr("visible", visible);
     });
   };
