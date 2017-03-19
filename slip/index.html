@@ -58,6 +58,7 @@
 
 <a-asset-item id="homme1" src="models/Homme_1024/man.dae"></a-asset-item>
 <a-asset-item id="black" src="models/homme_black/man.dae"></a-asset-item>
+<a-asset-item id="brown" src="models/homme_brown/man.dae"></a-asset-item>
 
 
 <a-asset-item id="femme1" src="models/Femme/femme.dae"></a-asset-item>
@@ -82,6 +83,11 @@
 <a-asset-item id="sliprouge_black" src="models/slip/rouge_black/slip_rouge.dae"></a-asset-item>
 <a-asset-item id="slipgris_black" src="models/slip/gris_black/slip_gris.dae"></a-asset-item>
 
+<a-asset-item id="slipbleu_brown" src="models/slip/bleu_brown/slip_bleu.dae"></a-asset-item>
+<a-asset-item id="slipblanc_brown" src="models/slip/blanc_brown/slip_blanc.dae"></a-asset-item>
+<a-asset-item id="sliprouge_brown" src="models/slip/rouge_brown/slip_rouge.dae"></a-asset-item>
+<a-asset-item id="slipgris_brown" src="models/slip/gris_brown/slip_gris.dae"></a-asset-item>
+
 <a-asset-item id="box-obj" src="models/room3/box/Box vide_light_above.obj"></a-asset-item>
 <a-asset-item id="box-mtl" src="models/room3/box/Box vide_light_above.mtl"></a-asset-item>  
 
@@ -98,7 +104,7 @@
 <a-asset-item id="cadre2-mtl" src="models\cadre2\HaiVanPassFrame.mtl"></a-asset-item>
 <a-asset-item id="plant-obj" src="models/plant/fern2.obj"></a-asset-item> <a-asset-item id="plant-mtl" src="models/plant/fern2.mtl"></a-asset-item>  
 <a-asset-item id="pot-obj" src="models/plant/Low-Poly Plant_.obj"></a-asset-item> <a-asset-item id="pot-mtl" src="models/plant/Low-Poly Plant_.mtl"></a-asset-item>  
-<a-asset-item id="speaker" src="models\speaker\Speakers2Finished.dae"></a-asset-item>
+<a-asset-item id="speaker" src="models\speaker\speaker_francais.dae"></a-asset-item>
 
 <script id="slip_item" type="text/html">
   <a-image 
@@ -213,16 +219,27 @@
 <a-animation attribute="rotation" from="0 -30 0" to="0 330 0" dur="15000"
                      easing="linear" repeat="indefinite"></a-animation>
 <a-collada-model src="#black" visible="false" class="model size L" scale=".02 .02 .02" position="0 0 0" rotation="90 0 0" ></a-collada-model> <a-image src="#shadow1" position="0 0.02 0" rotation="90 0 0" scale="2 2 2" opacity=".4"></a-image>	
- <a-collada-model id="slip_bleu_black_model" visible="false" class="model slip slip_bleu size L" src="#slipbleu_black"  scale=".081 .081 .081" position="0 1.81 0.015" rotation="0 0 0"  ></a-collada-model> 
- <a-collada-model id="slip_blanc_black_model" visible="false" class="model slip slip_blanc size L" src="#slipblanc_black"  scale=".081 .081 .081" position="0 1.81 0.015" rotation="0 0 0" ></a-collada-model> 
- <a-collada-model id="slip_rouge_black_model" visible="false" class="model slip slip_rouge size L" src="#sliprouge_black"  scale=".081 .081 .081" position="0 1.81 0.015" rotation="0 0 0" ></a-collada-model> 
- <a-collada-model id="slip_gris_black_model" visible="false" class="model slip slip_gris size L" src="#slipgris_black"  scale=".081 .081 .081" position="0 1.81 0.015" rotation="0 0 0" ></a-collada-model> 
+ <a-collada-model id="slip_bleu_black_model" visible="false" class="model slip slip_bleu size L" src="#slipbleu_black"  scale=".081 .081 .088" position="0 1.81 0.015" rotation="0 0 0"  ></a-collada-model> 
+ <a-collada-model id="slip_blanc_black_model" visible="false" class="model slip slip_blanc size L" src="#slipblanc_black"  scale=".081 .081 .088" position="0 1.81 0.015" rotation="0 0 0" ></a-collada-model> 
+ <a-collada-model id="slip_rouge_black_model" visible="false" class="model slip slip_rouge size L" src="#sliprouge_black"  scale=".081 .081 .088" position="0 1.81 0.015" rotation="0 0 0" ></a-collada-model> 
+ <a-collada-model id="slip_gris_black_model" visible="false" class="model slip slip_gris size L" src="#slipgris_black"  scale=".081 .081 .088" position="0 1.81 0.015" rotation="0 0 0" ></a-collada-model> 
 </a-entity>
+
+<a-entity id="mannequin3" position="0 0 4">
+<a-animation attribute="rotation" from="0 -30 0" to="0 330 0" dur="15000"
+                     easing="linear" repeat="indefinite"></a-animation>
+<a-collada-model src="#brown" class="model size M" scale=".02 .02 .02" position="0 0 0" rotation="90 0 0" ></a-collada-model> <a-image src="#shadow1" position="0 0.02 0" rotation="90 0 0" scale="2 2 2" opacity=".4"></a-image>	
+<a-collada-model id="slip_bleu_brown_model" class="model slip slip_bleu size M" src="#slipbleu_brown"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0"  ></a-collada-model> 
+ <a-collada-model id="slip_blanc_brown_model" class="model slip slip_blanc size M" src="#slipblanc_brown"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0" ></a-collada-model> 
+ <a-collada-model id="slip_rouge_brown_model" class="model slip slip_rouge size M" src="#sliprouge_brown"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0" ></a-collada-model> 
+ <a-collada-model id="slip_gris_brown_model" class="model slip slip_gris size M " src="#slipgris_brown"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0" ></a-collada-model> 
+</a-entity>
+
 
 <a-image src="#portail" position="0.06 2.58 19.57" rotation="0 180 0" scale="6.8 5.96 4"></a-image>	 	  
 
-<a-collada-model src="#speaker"  scale=".3 .3 .3" position="6.65 0 16.93" rotation="0 127 0" visible="true" ></a-collada-model>
-<a-collada-model src="#speaker"  scale=".3 .3 .3" position="-6.48 0 16.45" rotation="0 51.6 0" visible="true" ></a-collada-model>
+<a-collada-model src="#speaker"  scale=".5 .5 .5" position="4.3 1 18.09" rotation="0 116 0" visible="true" ></a-collada-model>
+<a-collada-model src="#speaker"  scale=".5 .5 .5" position="-4.22 1 18.25" rotation="0 57.12 0" visible="true" ></a-collada-model>
 
 	<!-- déco mur gauche -->
 	
