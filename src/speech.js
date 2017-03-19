@@ -16,8 +16,8 @@ SpeechSystem.prototype.init = function() {
         resolve();
       },
       'lang': 'fr-FR',
-      'volume': 0.5,
-      'rate': 1,
+      'volume': 0.6,
+      'rate': 1.1,
       'pitch':1 
     });
   });
@@ -45,8 +45,11 @@ SpeechSystem.prototype.pause_listening = function() {
 };
 
 SpeechSystem.prototype.resume_listening = function() {
+  var that = this;
   console.log('Resume listening');
-  this.annyang.resume();
+  setTimeout(function() {
+    that.annyang.resume();
+  }, 1000);
 };
 
 SpeechSystem.prototype.listen = function(result_callback) {
