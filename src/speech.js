@@ -25,32 +25,35 @@ SpeechSystem.prototype.init = function() {
 
 
 SpeechSystem.prototype.talk = function(message) {
+  var that = this;
+  this.pause_listening();
   this.Speech.default.speak({
     text: message,
     onError: function(e) {
       console.log('sorry an error occured.', e);
     },
     onEnd: function() {
-      console.log('your text has successfully been spoken.');
+      console.log('end speaking');
+      that.resume_listening();
     }
   });
 };
 
-function listen(result_callback) {
-}
+SpeechSystem.prototype.pause_listening = function() {
+  console.log('Pause listening');
+  this.annyang.pause();
+};
 
-function pause_listening() {
-  annyang.pause();
-}
-
-function resume_listening() {
-  annyang.resume();
-}
+SpeechSystem.prototype.resume_listening = function() {
+  console.log('Resume listening');
+  this.annyang.resume();
+};
 
 SpeechSystem.prototype.listen = function(result_callback) {
-  annyang.setLanguage('fr-FR');
-  annyang.addCallback('result', function(phrases) {
+  console.log('Start listening');
+  this.annyang.setLanguage('fr-FR');
+  this.annyang.addCallback('result', function(phrases) {
     result_callback(phrases);
   });
-  annyang.start();
+  this.annyang.start();
 };

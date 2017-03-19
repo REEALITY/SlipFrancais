@@ -52,15 +52,16 @@ module.exports = function(deps) {
   fiche_produit.attachClickListener($, selected_options);
   fiche_produit.selectSize($, selected_options, $('#size_item_m'));
 
-  speech.init()
-  .then(function() {
-    speech.talk(dictionary.COLOR_QUESTION);
-  });
-
   function chatbot_talk(message) {
     speech.talk(message);
   }
 
+  speech.init()
+  .then(function() {
+    setTimeout(function() {
+      speech.talk(dictionary.COLOR_QUESTION);
+    }, 2000);
+  });
   speech.listen(send_sentences_to_chatbot(chatbot, chatbot_talk));
 };
 

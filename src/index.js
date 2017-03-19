@@ -7,7 +7,7 @@ global.jQuery = require('jquery');
 var deps = {
   'jQuery': global.jQuery,
   'window': window,
-  'speak-tts': speaktts,
+  'speaktts': speaktts,
   'annyang': annyang
 };
 
