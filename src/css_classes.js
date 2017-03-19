@@ -9,4 +9,5 @@ module.exports = {
   size_item_selected: '.size',
   slip_model: '.slip_model',
   chanson: '.chanson'
+  saleswoman: '.saleswoman'
 };

@@ -11,6 +11,7 @@ var Chatbot = require('./chatbot/chatbot');
 var dictionary = require('./chatbot/dictionary');
 var DisplayHandler = require('./display_handler');
 var dictionary = require('./chatbot/dictionary');
+var SalesWoman = require('./saleswoman');
 
 function send_sentences_to_chatbot(chatbot, reply_callback) {
   return function(sentences) {
@@ -34,12 +35,12 @@ module.exports = function(deps) {
   var cart = new Cart(); 
   var cart_board = new CartBoard($);
   var speech = new Speech(deps);
-
+  var saleswoman = new SalesWoman($);
   var personalConfig = {
                         slip: 'slip_bleu',
                         size: 'M',
-                        chosenColor : dictionary.WHITE,
-                        chosenSize : dictionary.MOYEN
+                        skin : dictionary.WHITE,
+                        dabber : "nodab"
                        };
 
   var displayHandler = new DisplayHandler($, personalConfig);
@@ -66,10 +67,9 @@ module.exports = function(deps) {
   speech.init()
   .then(function() {
     setTimeout(function() {
-      speech.talk(dictionary.COLOR_QUESTION);
+      speech.talk(dictionary.GREETINGS2);
     }, 2000);
   });
-  speech.listen(send_sentences_to_chatbot(chatbot, chatbot_talk));
   
   var soundPlayed = false;
   $(css_classes.chanson).on('click', function() {
@@ -83,9 +83,16 @@ module.exports = function(deps) {
 		soundPlayed = true;
 	  }
   });
+  saleswoman.on_clicked(function() {
+    speech.talk(dictionary.COLOR_QUESTION);
+    speech.listen(send_sentences_to_chatbot(chatbot, chatbot_talk));
+  });
+
+  displayHandler.onPersonalConfigChanged();
+
 };
 
 function redirect_to_login_page(window) {
-    window.location = "https://www.leslipfrancais.fr/authentification?multi-shipping=0&display_guest_checkout=0&back=https%3A%2F%2Fwww.leslipfrancais.fr%2Fcommande%3Fstep%3D1%26multi-shipping%3D0";
+  window.open("https://www.leslipfrancais.fr/authentification?multi-shipping=0&display_guest_checkout=0&back=https%3A%2F%2Fwww.leslipfrancais.fr%2Fcommande%3Fstep%3D1%26multi-shipping%3D0", '_blank');
 }
 

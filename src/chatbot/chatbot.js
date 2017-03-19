@@ -19,16 +19,10 @@ module.exports = function(displayHandler, config) {
         {
             var chosenColor = extractEntity(query, dictionary.COLORS);
             if (chosenColor === "")
-                return dictionary.DIDNT_UNDERSTAND;
+                return "";//dictionary.DIDNT_UNDERSTAND;
             else
             {
-                if (chosenColor == dictionary.BLACK)
-                    config.size = "L";    
-                if (chosenColor == dictionary.WHITE)
-                    config.size = "M";    
-                if (chosenColor == dictionary.BROWN)
-                    config.size = "L";    
-                //config.chosenColor = chosenColor;
+                config.skin = chosenColor;
                 this.state = dictionary.ASK_SIZE; 
                 reply = dictionary.UNDERSTOOD + chosenColor+ ".";
                 reply += " "+dictionary.CORPULENCE_QUESTION;
@@ -38,7 +32,7 @@ module.exports = function(displayHandler, config) {
         {
             var chosenCorpulence = extractEntity(query, dictionary.CORPULENCES);
             if (chosenCorpulence === "")
-                return dictionary.DIDNT_UNDERSTAND;
+                return "";
             else  
             {
                 if (chosenCorpulence == dictionary.CORPULENT)
@@ -47,7 +41,6 @@ module.exports = function(displayHandler, config) {
                     config.size = "M";    
                 if (chosenCorpulence == dictionary.SMALL)
                     config.size = "S";    
-                config.chosenSize = chosenCorpulence;
                 this.state = dictionary.FINISHED; 
                 reply = dictionary.UNDERSTOOD + chosenCorpulence+ ".";
                 reply += " "+dictionary.FINISH;
