@@ -34,8 +34,7 @@ module.exports = function(deps) {
   var cart = new Cart(); 
   var cart_board = new CartBoard($);
   var speech = new Speech(deps);
-  var chatbot = new Chatbot();
-  
+
   var personalConfig = {
                         slip: 'slip_bleu',
                         size: 'M',
@@ -44,7 +43,8 @@ module.exports = function(deps) {
                        };
 
   var displayHandler = new DisplayHandler($, personalConfig);
-
+  var chatbot = new Chatbot(displayHandler, personalConfig);
+  
   $(css_classes.add_to_cart).on('click', function() {
     var reference = slip_selection_to_reference(personalConfig.slip, 
       personalConfig.size);
