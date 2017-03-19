@@ -70,6 +70,19 @@ module.exports = function(deps) {
     }, 2000);
   });
   speech.listen(send_sentences_to_chatbot(chatbot, chatbot_talk));
+  
+  var soundPlayed = false;
+  $(css_classes.chanson).on('click', function() {
+	  var entity = global.document.querySelector('.chanson[sound]');
+	  if(soundPlayed) {
+		entity.components.sound.pauseSound();
+		soundPlayed = false;
+	  }
+	  else {
+		entity.components.sound.playSound();
+		soundPlayed = true;
+	  }
+  });
 };
 
 function redirect_to_login_page(window) {

@@ -33,7 +33,7 @@
 </head>
 <body>
 
-<a-scene stats>
+<a-scene >
 <a-entity camera mouse-cursor wasd-controls look-controls keyboard-shortcuts  position="0 3 8.43"  rotation="0 270 0"></a-entity>
 <a-assets>
 <img src="images/logo-slip-francais.jpg" id="logo"></img>   
@@ -104,9 +104,12 @@
 
 <a-asset-item id="cadre2-obj" src="models\cadre2\HaiVanPassFrame.obj"></a-asset-item>
 <a-asset-item id="cadre2-mtl" src="models\cadre2\HaiVanPassFrame.mtl"></a-asset-item>
+
 <a-asset-item id="plant-obj" src="models/plant/fern2.obj"></a-asset-item> <a-asset-item id="plant-mtl" src="models/plant/fern2.mtl"></a-asset-item>  
 <a-asset-item id="pot-obj" src="models/plant/Low-Poly Plant_.obj"></a-asset-item> <a-asset-item id="pot-mtl" src="models/plant/Low-Poly Plant_.mtl"></a-asset-item>  
+
 <a-asset-item id="speaker" src="models\speaker\speaker_francais.dae"></a-asset-item>
+
 
 <script id="slip_item" type="text/html">
   <a-image 
@@ -245,7 +248,8 @@
 
 <a-collada-model src="#speaker"  scale=".5 .5 .5" position="4.3 1 18.09" rotation="0 116 0" visible="true" ></a-collada-model>
 <a-collada-model src="#speaker"  scale=".5 .5 .5" position="-4.22 1 18.25" rotation="0 57.12 0" visible="true" ></a-collada-model>
-
+<a-entity id="chanson" class="chanson" geometry="primitive: plane" material="opacity:0"  position="3.77 1 17.31" sound="src:audio/chanteur.mp3; autoplay: false" rotation="0 -138 0" scale="1 2.1 1" visible=""></a-entity>
+	
 	<!-- déco mur gauche -->
 	
 <a-obj-model src="#box-obj" mtl="#box-mtl" scale=".06 .01 .03" position="-8.82 3.82 4.08" rotation="270 0 270" visible="true" ></a-obj-model>
