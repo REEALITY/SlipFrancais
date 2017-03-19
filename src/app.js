@@ -39,8 +39,7 @@ module.exports = function(deps) {
   var personalConfig = {
                         slip: 'slip_bleu',
                         size: 'M',
-                        chosenColor : dictionary.WHITE,
-                        chosenSize : dictionary.MOYEN
+                        skin : dictionary.WHITE
                        };
 
   var displayHandler = new DisplayHandler($, personalConfig);

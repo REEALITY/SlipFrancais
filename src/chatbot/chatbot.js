@@ -22,13 +22,7 @@ module.exports = function(displayHandler, config) {
                 return dictionary.DIDNT_UNDERSTAND;
             else
             {
-                if (chosenColor == dictionary.BLACK)
-                    config.size = "L";    
-                if (chosenColor == dictionary.WHITE)
-                    config.size = "M";    
-                if (chosenColor == dictionary.BROWN)
-                    config.size = "L";    
-                //config.chosenColor = chosenColor;
+                config.skin = chosenColor;
                 this.state = dictionary.ASK_SIZE; 
                 reply = dictionary.UNDERSTOOD + chosenColor+ ".";
                 reply += " "+dictionary.CORPULENCE_QUESTION;
@@ -47,7 +41,6 @@ module.exports = function(displayHandler, config) {
                     config.size = "M";    
                 if (chosenCorpulence == dictionary.SMALL)
                     config.size = "S";    
-                config.chosenSize = chosenCorpulence;
                 this.state = dictionary.FINISHED; 
                 reply = dictionary.UNDERSTOOD + chosenCorpulence+ ".";
                 reply += " "+dictionary.FINISH;
