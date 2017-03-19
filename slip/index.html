@@ -19,7 +19,7 @@
   <link href="css/default.css" rel="stylesheet">
   <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
   <script src="components/index.js"></script>   
-  <script src="components/a-obj-models.js"></script> 
+
   <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.3.0/dist/aframe-extras.min.js"></script>
   <script src="https://unpkg.com/aframe-template-component@^3.1.1/dist/aframe-template-component.min.js"></script>
   <script src="https://unpkg.com/aframe-layout-component@4.0.1/dist/aframe-layout-component.min.js"></script> 
@@ -28,8 +28,8 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
 
-  <script src="components/index.js"></script>   
-  <script src="components/a-obj-models.js"></script> 
+  
+ 
 </head>
 <body>
 
@@ -51,12 +51,15 @@
 <img src="images/mozaic.png" id="mozaic"></img>
 <img src="images/mozaic2.png" id="mozaic2"></img>
 <img src="images/mozaic3.png" id="mozaic3"></img>
-<img src="images/tex1.png" id="tex1"></img>
+
 <img src="images/portail.png" id="portail"></img>
 <img src="images/cadre.png" id="cadre"></img>
 <img src="images/poster.jpg" id="poster"></img>
 
 <a-asset-item id="homme1" src="models/Homme_1024/man.dae"></a-asset-item>
+<a-asset-item id="black" src="models/homme_black/man.dae"></a-asset-item>
+
+
 <a-asset-item id="femme1" src="models/Femme/femme.dae"></a-asset-item>
 
 
@@ -74,12 +77,17 @@
 <a-asset-item id="sliprouge" src="models/slip/rouge/slip_rouge.dae"></a-asset-item>
 <a-asset-item id="slipgris" src="models/slip/gris/slip_gris.dae"></a-asset-item> 
 
+<a-asset-item id="slipbleu_black" src="models/slip/bleu_black/slip_bleu.dae"></a-asset-item>
+<a-asset-item id="slipblanc_black" src="models/slip/blanc_black/slip_blanc.dae"></a-asset-item>
+<a-asset-item id="sliprouge_black" src="models/slip/rouge_black/slip_rouge.dae"></a-asset-item>
+<a-asset-item id="slipgris_black" src="models/slip/gris_black/slip_gris.dae"></a-asset-item>
+
 <a-asset-item id="box-obj" src="models/room3/box/Box vide_light_above.obj"></a-asset-item>
 <a-asset-item id="box-mtl" src="models/room3/box/Box vide_light_above.mtl"></a-asset-item>  
 
 <img src="images/boite.png" id="boite"></img>
 <img src="images/cadre_photo.png" id="cadre_photo"></img>
-<img src="images/pot.png" id="pot"></img>
+
 <img src="images/livre.png" id="livre"></img>
 <img src="images/ombre_etagere.png" id="ombre_etagere"></img>
 
@@ -88,6 +96,9 @@
 
 <a-asset-item id="cadre2-obj" src="models\cadre2\HaiVanPassFrame.obj"></a-asset-item>
 <a-asset-item id="cadre2-mtl" src="models\cadre2\HaiVanPassFrame.mtl"></a-asset-item>
+
+<a-asset-item id="speaker" src="models\speaker\Speakers2Finished.dae"></a-asset-item>
+
 
 <script id="slip_item" type="text/html">
   <a-image 
@@ -191,14 +202,27 @@
 <a-entity id="mannequin1" position="0 0 4">
 <a-animation attribute="rotation" from="0 -30 0" to="0 330 0" dur="15000"
                      easing="linear" repeat="indefinite"></a-animation>
-<a-collada-model src="#homme1"  scale=".02 .02 .02" position="0 0 0" rotation="90 0 0" ></a-collada-model> <a-image src="#shadow1" position="0 0.02 0" rotation="90 0 0" scale="2 2 2" opacity=".4"></a-image>	
+<a-collada-model src="#homme1" class="model size M" scale=".02 .02 .02" position="0 0 0" rotation="90 0 0" ></a-collada-model> <a-image src="#shadow1" position="0 0.02 0" rotation="90 0 0" scale="2 2 2" opacity=".4"></a-image>	
 <a-collada-model id="slip_bleu_model" class="model slip slip_bleu size M" src="#slipbleu"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0"  ></a-collada-model> 
  <a-collada-model id="slip_blanc_model" class="model slip slip_blanc size M" src="#slipblanc"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0" ></a-collada-model> 
  <a-collada-model id="slip_rouge_model" class="model slip slip_rouge size M" src="#sliprouge"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0" ></a-collada-model> 
  <a-collada-model id="slip_gris_model" class="model slip slip_gris size M " src="#slipgris"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0" ></a-collada-model> 
 </a-entity>
 
+<a-entity id="mannequin2" position="0 0 4">
+<a-animation attribute="rotation" from="0 -30 0" to="0 330 0" dur="15000"
+                     easing="linear" repeat="indefinite"></a-animation>
+<a-collada-model src="#black" visible="false" class="model size L" scale=".02 .02 .02" position="0 0 0" rotation="90 0 0" ></a-collada-model> <a-image src="#shadow1" position="0 0.02 0" rotation="90 0 0" scale="2 2 2" opacity=".4"></a-image>	
+ <a-collada-model id="slip_bleu_black_model" visible="false" class="model slip slip_bleu size L" src="#slipbleu_black"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0"  ></a-collada-model> 
+ <a-collada-model id="slip_blanc_black_model" visible="false" class="model slip slip_blanc size L" src="#slipblanc_black"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0" ></a-collada-model> 
+ <a-collada-model id="slip_rouge_black_model" visible="false" class="model slip slip_rouge size L" src="#sliprouge_black"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0" ></a-collada-model> 
+ <a-collada-model id="slip_gris_black_model" visible="false" class="model slip slip_gris size L" src="#slipgris_black"  scale=".021 .021 .021" position="0 1.81 -0.01" rotation="0 0 0" ></a-collada-model> 
+</a-entity>
+
 <a-image src="#portail" position="0.06 2.58 19.57" rotation="0 180 0" scale="6.8 5.96 4"></a-image>	 	  
+
+<a-collada-model src="#speaker"  scale=".3 .3 .3" position="6.65 0 16.93" rotation="0 127 0" visible="true" ></a-collada-model>
+<a-collada-model src="#speaker"  scale=".3 .3 .3" position="-6.48 0 16.45" rotation="0 51.6 0" visible="true" ></a-collada-model>
 
 	<!-- déco mur gauche -->
 	

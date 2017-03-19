@@ -37,8 +37,8 @@ module.exports = function(deps) {
   var chatbot = new Chatbot();
   
   var personalConfig = {
-                        slip: '',
-                        size: '',
+                        slip: 'slip_bleu',
+                        size: 'M',
                         chosenColor : dictionary.WHITE,
                         chosenSize : dictionary.MOYEN
                        };
@@ -58,16 +58,17 @@ module.exports = function(deps) {
 
   slip_manager.attachClickListener($, displayHandler, personalConfig);
   fiche_produit.attachClickListener($, displayHandler, personalConfig);
-  
-  speech.init()
-  .then(function() {
-    speech.talk(dictionary.COLOR_QUESTION);
-  });
 
   function chatbot_talk(message) {
     speech.talk(message);
   }
 
+  speech.init()
+  .then(function() {
+    setTimeout(function() {
+      speech.talk(dictionary.COLOR_QUESTION);
+    }, 2000);
+  });
   speech.listen(send_sentences_to_chatbot(chatbot, chatbot_talk));
 };
 

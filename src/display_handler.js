@@ -21,9 +21,17 @@ module.exports = function($, config)
         var visible = true;
         var element = $(this);
         for (var property in config)
+        {
           if (config.hasOwnProperty(property))
-            if (element.hasClass(property) && config[property] && config[property] != "")
+          { 
+            console.log(element.attr('id'), property, config[property], element.hasClass(property), element.hasClass(config[property])); 
+            if (element.hasClass(property) && config[property] && config[property] !== "")
+            {
                visible = visible && element.hasClass(config[property]);
+            }
+          }
+        }
+        console.log(element.attr('id'), visible);
         element.attr("visible", visible);
     });
   };
