@@ -15,7 +15,9 @@
     "annyang": "^2.6.0",
     "bluebird": "^3.5.0",
     "express": "^4.15.2",
+    "ion-sound": "^3.0.7",
     "jquery": "^3.2.0",
+    "play-sound": "^1.1.1",
     "speak-tts": "^1.0.2"
   },
   "devDependencies": {

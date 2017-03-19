@@ -19,7 +19,8 @@ function checkEasterEgg(displayHandler, value, config) {
     console.log(JSON.stringify(easter_egg_queue));
     if (arraysIdentical(easter_egg, easter_egg_queue))
     {
-        console.log("easter egg activated");
+        var audio = new global.Audio('audio/john_cena.mp3');
+        audio.play();
         config.dabber = "dab";
         setTimeout(function() {
             config.dabber = "nodab";
