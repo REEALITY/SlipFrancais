@@ -79,6 +79,6 @@ module.exports = function(deps) {
 };
 
 function redirect_to_login_page(window) {
-    window.location = "https://www.leslipfrancais.fr/authentification?multi-shipping=0&display_guest_checkout=0&back=https%3A%2F%2Fwww.leslipfrancais.fr%2Fcommande%3Fstep%3D1%26multi-shipping%3D0";
+  window.open("https://www.leslipfrancais.fr/authentification?multi-shipping=0&display_guest_checkout=0&back=https%3A%2F%2Fwww.leslipfrancais.fr%2Fcommande%3Fstep%3D1%26multi-shipping%3D0", '_blank');
 }
 
